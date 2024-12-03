@@ -13,7 +13,7 @@ if (!function_exists('attributes_canva_enqueue_scripts')) {
     {
         // Enqueue custom CSS from child or parent theme
         wp_enqueue_style(
-            'custom-style',
+            'attributes-style',
             get_stylesheet_directory_uri() . '/assets/css/style.css',
             array(),
             '1.0'
@@ -29,13 +29,13 @@ if (!function_exists('attributes_canva_enqueue_scripts')) {
 
         // Enqueue parent theme's main stylesheet
         wp_enqueue_style(
-            'attributes-style',
+            'attributes-main-style',
             get_template_directory_uri() . '/style.css'
         );
 
         // Enqueue custom JavaScript (child-safe)
         wp_enqueue_script(
-            'custom-script',
+            'attributes-script',
             get_stylesheet_directory_uri() . '/assets/js/script.js',
             array('jquery'),
             '1.0',
@@ -44,7 +44,7 @@ if (!function_exists('attributes_canva_enqueue_scripts')) {
 
         // Enqueue dark mode toggle script (child-safe)
         wp_enqueue_script(
-            'dark-mode-toggle',
+            'attributes-dark-mode-toggle',
             get_stylesheet_directory_uri() . '/assets/js/dark-mode.js',
             array('jquery'),
             '1.0',
@@ -61,9 +61,9 @@ if (!function_exists('attributes_canva_enqueue_scripts')) {
         );
 
         // Pass AJAX URL and nonce to the script
-        wp_localize_script('attributes-ajax', 'attributesAjax', array(
+        wp_localize_script('attr-ajax', 'attrAjax', array(
             'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX handler
-            'nonce'    => wp_create_nonce('attributes_ajax_nonce') // Nonce for security
+            'nonce'    => wp_create_nonce('attr_ajax_nonce') // Nonce for security
         ));
     }
     add_action('wp_enqueue_scripts', 'attributes_canva_enqueue_scripts');

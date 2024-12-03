@@ -10,10 +10,26 @@ if (!function_exists('attributes_canva_theme_setup')) {
      */
     function attributes_canva_theme_setup()
     {
+        add_theme_support('post-thumbnails');
+        add_theme_support('automatic-feed-links');
+        add_theme_support('title-tag');
+        add_theme_support(
+            'html5',
+            [
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+                'script',
+                'style',
+            ]
+        );
+
         // Add support for custom logo
         add_theme_support('custom-logo', array(
             'height'      => 100,
-            'width'       => 400,
+            'width'       => 350,
             'flex-height' => true,
             'flex-width'  => true,
         ));
@@ -35,6 +51,9 @@ if (!function_exists('attributes_canva_theme_setup')) {
             'footer'  => __('Footer Menu', 'attr-canva'),
             'sidebar' => __('Sidebar Menu', 'attr-canva'),
         ));
+
+        // Gutenberg wide images.
+        add_theme_support('align-wide');
     }
     add_action('after_setup_theme', 'attributes_canva_theme_setup');
 }

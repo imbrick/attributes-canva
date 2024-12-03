@@ -6,7 +6,7 @@
 
 function attributes_canva_ajax_handler() {
     // Verify the nonce for security
-    check_ajax_referer('attributes_ajax_nonce', 'security');
+    check_ajax_referer('attr_ajax_nonce', 'security');
 
     // Get data from the AJAX request
     $data = isset($_POST['data']) ? sanitize_text_field($_POST['data']) : '';
