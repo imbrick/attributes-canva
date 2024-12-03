@@ -4,12 +4,13 @@
  */
 
 // Include files from the inc/ folder
-require_once get_template_directory() . '/inc/enqueue-scripts.php';
-require_once get_template_directory() . '/inc/ajax-handlers.php';
-require_once get_template_directory() . '/inc/theme-setup.php';
-require_once get_template_directory() . '/inc/customizer.php';
-require_once get_template_directory() . '/inc/widgets.php';
-require_once get_template_directory() . '/inc/starter-content.php';
+$inc_dir = get_template_directory() . '/inc/';
+require_once $inc_dir . 'enqueue-scripts.php';
+require_once $inc_dir . 'ajax-handlers.php';
+require_once $inc_dir . 'theme-setup.php';
+require_once $inc_dir . 'customizer.php';
+require_once $inc_dir . 'widgets.php';
+require_once $inc_dir . 'starter-content.php';
 
 // Add any theme-specific code here, if necessary.
 
@@ -22,10 +23,10 @@ if (!function_exists('attribute_canva_customizer_css')) {
      * Apply customizer styles dynamically
      */
     function attribute_canva_customizer_css() {
-        $accent_color = get_theme_mod('attribute_canva_accent_color', '#FF5722');
+        $accent_color = esc_attr(get_theme_mod('attribute_canva_accent_color', '#FF5722'));
         echo "<style>
             :root {
-                --accent-color: $accent_color;
+                --accent-color: " . ($accent_color ?: '#FF5722') . ";
             }
         </style>";
     }
@@ -36,7 +37,25 @@ if (!function_exists('attribute_canva_customizer_css')) {
  * Lazy load images for performance
  */
 add_filter('wp_get_attachment_image_attributes', function ($attr) {
+    if (is_admin() || !isset($attr['loading'])) {
+        return $attr;
+    }
     $attr['loading'] = 'lazy';
     return $attr;
 });
 
+/**
+ * Add Schema Markup for SEO
+ */
+add_action('wp_head', function () {
+    if (is_single() || is_page()) {
+        echo '<script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "' . esc_js(get_the_title()) . '",
+            "url": "' . esc_url(get_permalink()) . '"
+        }
+        </script>';
+    }
+});
