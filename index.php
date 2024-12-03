@@ -1,41 +1,75 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The main template file.
+ *
+ * This is a fallback template file in WordPress.
+ * It is used to display content when no more specific template is found.
+ *
+ * @package Attribute Canva
+ */
+get_header(); ?>
 
-<main id="main" class="site-main" role="main">
+<main id="primary" class="site-main">
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <header class="entry-header">
-                    <h2 class="entry-title">
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </h2>
-                    <div class="entry-meta">
-                        <span class="post-date"><?php echo get_the_date(); ?></span> |
-                        <span class="post-author"><?php the_author_posts_link(); ?></span> |
-                        <span class="post-categories"><?php the_category(', '); ?></span>
-                    </div>
-                </header>
+                    <?php if (is_singular()) : ?>
+                        <h1 class="entry-title"><?php the_title(); ?></h1>
+                    <?php else : ?>
+                        <h2 class="entry-title">
+                            <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+                        </h2>
+                    <?php endif; ?>
+                </header><!-- .entry-header -->
+
                 <div class="entry-content">
-                    <?php 
-                    add_filter('excerpt_length', function() { return 20; }); 
-                    the_excerpt(); 
+                    <?php
+                    the_content(sprintf(
+                        wp_kses(
+                            __('Continue reading %s <span class="meta-nav">&rarr;</span>', 'attribute-canva'),
+                            ['span' => ['class' => []]]
+                        ),
+                        the_title('<span class="screen-reader-text">"', '"</span>', false)
+                    ));
                     ?>
-                </div>
-            </article>
+                </div><!-- .entry-content -->
+
+                <footer class="entry-footer">
+                    <?php attribute_canva_entry_footer(); ?>
+                </footer><!-- .entry-footer -->
+            </article><!-- #post-<?php the_ID(); ?> -->
         <?php endwhile; ?>
 
-        <nav class="pagination">
-            <?php
-            the_posts_pagination(array(
-                'mid_size'  => 2,
-                'prev_text' => __('&laquo; Previous', 'attributes-canva'),
-                'next_text' => __('Next &raquo;', 'attributes-canva'),
-                'screen_reader_text' => __('Posts navigation', 'attributes-canva'),
-            ));
-            ?>
-        </nav>
+        <?php the_posts_pagination(); ?>
     <?php else : ?>
-        <p><?php _e('No content available. Please check back later.', 'attributes-canva'); ?></p>
-    <?php endif; ?>
-</main>
+        <section class="no-results not-found">
+            <header class="page-header">
+                <h1 class="page-title"><?php esc_html_e('Nothing Found', 'attribute-canva'); ?></h1>
+            </header><!-- .page-header -->
 
-<?php get_footer(); ?>
+            <div class="page-content">
+                <?php if (is_home() && current_user_can('publish_posts')) : ?>
+                    <p>
+                        <?php
+                        printf(
+                            wp_kses(
+                                __('Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'attribute-canva'),
+                                ['a' => ['href' => []]]
+                            ),
+                            esc_url(admin_url('post-new.php'))
+                        );
+                        ?>
+                    </p>
+                <?php else : ?>
+                    <p><?php esc_html_e('It seems we can’t find what you’re looking for. Perhaps searching can help.', 'attribute-canva'); ?></p>
+                    <?php get_search_form(); ?>
+                <?php endif; ?>
+            </div><!-- .page-content -->
+        </section><!-- .no-results -->
+    <?php endif; ?>
+</main><!-- #primary -->
+
+<?php
+get_sidebar();
+get_footer();

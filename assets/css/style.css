@@ -1,0 +1,779 @@
+
+
+/* ============================== *\
+1. General Reset and Base Styles
+\* ============================== */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    body {
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        background-color: #f9f9f9;
+        color: #333;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+/* ============================== *\
+ * 2. Typography
+\* ============================== */
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.2;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.75rem;
+    }
+    h4 {
+        font-size: 1.5rem;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    h6 {
+        font-size: 1rem;
+    }
+
+    p {
+        margin-bottom: 1em;
+    }
+
+    a {
+        color: #0073aa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+        color: #005177;
+        text-decoration: underline;
+    }
+
+/* ============================== *\
+ * 3. Layout Styles
+\* ============================== */
+    header {
+        background-color: #fff;
+        padding: 20px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header .site-logo img {
+        width: 100%;
+        max-height: 50px;
+    }
+
+    main {
+        margin: 20px auto;
+        max-width: 1200px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+/* ============================== *\
+ * 4. Utility Classes
+\* ============================== */
+    .hidden {
+        display: none !important;
+    }
+
+    .align-center {
+        text-align: center;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+/* ============================== *\
+ * 5. WordPress-Specific Classes
+\* ============================== */
+    .alignleft {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .alignright {
+        float: right;
+        margin-left: 15px;
+    }
+
+    .aligncenter {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .wp-caption {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 0.9rem;
+    }
+
+    .wp-caption img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .wp-block-gallery {
+        display: flex;
+        gap: 10px;
+    }
+
+    .wp-block-quote {
+        font-style: italic;
+        border-left: 3px solid #ddd;
+        margin: 20px 0;
+        padding: 10px 20px;
+    }
+
+/* ============================== *\
+ * 6. Forms and Inputs
+\* ============================== */
+    input,
+    textarea,
+    button {
+        font-family: inherit;
+        font-size: 16px;
+        line-height: 1.4;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    input:focus,
+    textarea:focus,
+    button:focus {
+        outline: none;
+        border-color: #0073aa;
+        box-shadow: 0 0 5px rgba(0, 115, 170, 0.5);
+    }
+
+    button {
+        background-color: #0073aa;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #005177;
+    }
+
+/* ============================== *\
+ * 7. Dark Mode (Optional)
+\* ============================== */
+    body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    body.dark-mode header {
+        background-color: #1f1f1f;
+    }
+
+    body.dark-mode a {
+        color: #4eaaff;
+    }
+
+    body.dark-mode footer {
+        background-color: #1f1f1f;
+    }
+
+/* ============================== *\
+ * 8. Header
+\* ============================== */
+    .header-left, .header-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .site-branding {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .site-branding .site-title a {
+        font-size: 1.8rem;
+        color: #222;
+        text-decoration: none;
+    }
+
+    .site-branding .site-description {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .main-navigation {
+        flex: 1;
+        margin-left: 20px;
+    }
+
+    .main-navigation ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .main-navigation ul.active {
+        display: flex; /* Show when the "active" class is applied */
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-navigation a {
+        color: #0073aa;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .main-navigation a:hover {
+        color: #005177;
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .header-search {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-search input[type="search"] {
+        padding: 5px;
+        font-size: 16px;
+    }
+
+    .header-cta .cta-button {
+        padding: 10px 20px;
+        background: #0073aa;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .header-cta .cta-button:hover {
+        background: #005177;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+
+        .main-navigation ul {
+            display: none; /* Hidden by default, shown via JavaScript */
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .main-navigation ul.active {
+            display: flex;
+        }
+    }
+
+/* ============================== *\
+ * 9. Footer
+\* ============================== */
+
+    /* General Footer Styling */
+    .site-footer {
+        background-color: #333;
+        color: #fff;
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .footer-widgets {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .footer-widget-area {
+        flex: 1;
+        min-width: 200px;
+        max-width: 300px;
+        color: #ccc;
+        text-align: left;
+    }
+
+    .footer-widget-area h2.widget-title {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .footer-widget-area p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .footer-widget-area a {
+        color: #4eaaff;
+        text-decoration: none;
+        line-height: 1.6;
+    }
+
+    .footer-widget-area a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .footer-widgets {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-widget-area {
+            max-width: 100%;
+        }
+    }
+
+    /* Footer Menu */
+    .footer-navigation {
+        margin: 20px 0;
+    }
+
+    .footer-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-menu li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .footer-menu li a:hover {
+        text-decoration: underline;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        margin-top: 20px;
+    }
+
+    .back-to-top a {
+        color: #4eaaff;
+        text-decoration: none;
+        font-size: 0.875rem;
+    }
+
+    .back-to-top a:hover {
+        text-decoration: underline;
+    }
+
+    /* Site Info */
+    .site-info {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: #ccc;
+    }
+
+    .site-info a {
+        color: #4eaaff;
+        text-decoration: none;
+    }
+
+    .site-info a:hover {
+        text-decoration: underline;
+    }
+
+
+/* ============================== *\
+ * 10. Sidebar
+\* ============================== */
+    /* General Sidebar Styles */
+    .sidebar {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar .widget {
+        margin-bottom: 20px;
+    }
+
+    .sidebar .widget h2.widget-title {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .sidebar .widget p,
+    .sidebar .widget a {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .sidebar .widget a:hover {
+        color: #0073aa;
+        text-decoration: underline;
+    }
+
+    /* Responsive Sidebar */
+    @media (max-width: 768px) {
+        .sidebar {
+            margin-top: 10px;
+            padding: 15px;
+        }
+    }
+
+
+/* ============================== *\
+ * 11. Archive
+\* ============================== */
+    .archive-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .archive-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .archive-description {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    .post-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .entry-header .entry-title {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+
+    .entry-meta {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    .entry-summary {
+        font-size: 1rem;
+        color: #444;
+    }
+
+    .no-results {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+
+/* ============================== *\
+ * 12. Search
+\* ============================== */
+    .search-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .search-title {
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .post-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .post-grid article {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .no-results {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .no-results .page-title {
+        font-size: 1.5rem;
+        color: #444;
+    }
+
+    .no-results p {
+        font-size: 1rem;
+        color: #666;
+        margin: 20px 0;
+    }
+
+    .no-results form {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+
+/* ============================== *\
+    * 13. Author
+\* ============================== */
+    /* Author Header */
+    .author-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .author-avatar img {
+        border-radius: 50%;
+        width: 96px;
+        height: 96px;
+    }
+
+    .author-info {
+        flex: 1;
+    }
+
+    .author-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .author-bio {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    /* Post Grid */
+    .post-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .author-header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .author-avatar img {
+            margin-bottom: 10px;
+        }
+    }
+
+
+/* ============================== *\
+    * 14. Single
+\* ============================== */
+    /* Post Header */
+    .entry-header {
+        margin-bottom: 30px;
+    }
+
+    .entry-header .entry-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .entry-meta {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    .entry-meta span {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    /* Post Thumbnail */
+    .post-thumbnail img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    /* Post Content */
+    .entry-content {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    .entry-content a {
+        color: #0073aa;
+        text-decoration: none;
+    }
+
+    .entry-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* Post Footer */
+    .entry-footer .edit-link {
+        font-size: 0.9rem;
+        color: #0073aa;
+    }
+
+    /* Post Navigation */
+    .post-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+    }
+
+    .post-navigation .nav-previous,
+    .post-navigation .nav-next {
+        font-size: 1rem;
+    }
+
+    /* Comments */
+    .comments-area {
+        margin-top: 50px;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
+    }
+
+
+/* ============================== *\
+    * 15. Single
+\* ============================== */
+    /* Page Header */
+    .page-hero {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .page-hero .page-thumbnail img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .page-hero .page-title {
+        font-size: 2.5rem;
+        color: #333;
+    }
+
+    /* Page Content */
+    .entry-content {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 40px;
+    }
+
+    .entry-content a {
+        color: #0073aa;
+        text-decoration: none;
+    }
+
+    .entry-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* Edit Link */
+    .entry-footer .edit-link {
+        font-size: 0.9rem;
+        color: #0073aa;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    /* Sidebar */
+    .page-sidebar {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin-top: 30px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-sidebar .widget {
+        margin-bottom: 20px;
+    }
+
+    .page-sidebar .widget-title {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 10px;
+    }

@@ -1,32 +1,38 @@
+<?php
+/**
+ * The header for the theme.
+ *
+ * Displays the <head> section, site branding, navigation, and search bar.
+ *
+ * @package Attribute Canva
+ */
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php bloginfo('description'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff"> <!-- Improves browser tab color on mobile -->
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header id="site-header" class="site-header <?php echo is_front_page() ? 'home-header' : 'inner-header'; ?>" role="banner">
-        <div class="container">
-            <h1 class="site-title">
-                <?php 
-                if (function_exists('the_custom_logo') && has_custom_logo()) {
-                    the_custom_logo();
-                } else { 
-                    ?>
-                    <a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
-                <?php } ?>
-            </h1>
-            <p class="site-description"><?php bloginfo('description'); ?></p>
-        </div>
-        <nav class="main-navigation" role="navigation">
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'primary',
-                'menu_id'        => 'primary-menu',
-            ));
-            ?>
-        </nav>
-    </header>
-    <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+<?php
+// Ensure the wp_body_open hook is present for compatibility with WP 5.2+.
+if (function_exists('wp_body_open')) {
+    wp_body_open();
+}
+?>
+
+<?php do_action('attribute_canva_before_header'); ?>
+
+<header id="site-header" class="site-header sticky-header" role="banner" aria-label="<?php esc_attr_e('Site Header', 'attribute-canva'); ?>">
+    <?php get_template_part('template-parts/header/header-main'); ?>
+</header><!-- #site-header -->
+
+<?php do_action('attribute_canva_after_header'); ?>
+
+<noscript>
+    <p><?php esc_html_e('JavaScript is disabled in your browser. Some features of this site may not work as expected.', 'attribute-canva'); ?></p>
+</noscript>
+
+<main id="main-content" class="site-main" role="main">

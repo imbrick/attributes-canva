@@ -53,6 +53,13 @@
             margin-bottom: 1rem;
             border-radius: 4px;
         }
+        .container > div > div {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .container > div > div > span {
+            min-width: 200px;
+        }
     </style>
 </head>
 <body>
@@ -128,6 +135,54 @@
             <li>Check the <strong>Theme Docs</strong> in your WordPress admin menu.</li>
             <li>Visit our <a href="https://example.com/support">support page</a>.</li>
         </ul>
+
+        <h2 id="structure">Theme structure</h2>
+        <p>If you need help, you can:</p>
+        <div>
+            <div><span>attribute-canva/</span> <span></span></div>
+            <div><span>├── assets/</span> <span># Contains all static assets (CSS, JS, images, etc.)</span></div>
+            <div><span>│ &nbsp; ├── css/</div>
+            <div><span>│ &nbsp; │ &nbsp; ├── style.css</span> <span># Main theme stylesheet (required by WordPress)</span></div>
+            <div><span>│ &nbsp; │ &nbsp; ├── dark-mode.css</span> <span># Styles for dark mode (conditionally loaded)</span></div>
+            <div><span>│ &nbsp; ├── js/</div>
+            <div><span>│ &nbsp; │ &nbsp; ├── script.js</span> <span># Main theme JavaScript</span></div>
+            <div><span>│ &nbsp; │ &nbsp; ├── dark-mode.js</span> <span># Dark mode toggle script</span></div>
+            <div><span>│ &nbsp; │ &nbsp; ├── ajax.js</span> <span># AJAX functionality</span></div>
+            <div><span>│ &nbsp; ├── images/</span> <span># Theme images</span></div>
+            <div><span>│ &nbsp; &nbsp; &nbsp; ├── logo.png</span> <span># Example logo</span></div>
+            <div><span>│</span><span></span></div>
+            <div><span>├── docs/</span> <span># Documentation for theme users</span></div>
+            <div><span>│ &nbsp; ├── documentation.html</span> <span># HTML file with detailed setup and usage instructions</span></div>
+            <div><span>│</span><span></span></div>
+            <div><span>├── inc/</span> <span># Core theme functionality (separate into logical parts)</span></div>
+            <div><span>│ &nbsp; ├── ajax-handlers.php</span> <span># Handles backend AJAX calls</span></div>
+            <div><span>│ &nbsp; ├── customizer.php</span> <span># Manages theme options via the WordPress Customizer</span></div>
+            <div><span>│ &nbsp; ├── enqueue-scripts.php</span> <span># Enqueues styles and scripts</span></div>
+            <div><span>│ &nbsp; ├── starter-content.php</span> <span># Starter content for new installs</span></div>
+            <div><span>│ &nbsp; ├── theme-setup.php</span> <span># Registers theme features like menus, thumbnails, etc.</span></div>
+            <div><span>│ &nbsp; ├── widgets.php</span> <span># Registers widgetized areas</span></div>
+            <div><span>│</span><span></span></div>
+            <div><span>├── page-templates/</span> <span># Custom page templates for specific layouts</span></div>
+            <div><span>│ &nbsp; ├── elementor-blank.php</span> <span># Blank template for Elementor compatibility</span></div>
+            <div><span>│</span><span></span></div>
+            <div><span>├── templates-parts/</span> <span># Reusable template parts</span></div>
+            <div><span>│ &nbsp; ├── header/</span> <span># Header-related template parts</span></div>
+            <div><span>│ &nbsp; │ &nbsp; ├── header-main.php</span> <span># Main site header</span></div>
+            <div><span>│ &nbsp; ├── footer/</span> <span># Footer-related template parts</span></div>
+            <div><span>│ &nbsp; &nbsp; &nbsp; ├── footer-widgets.php</span> <span># Footer widgets</span></div>
+            <div><span>│</span><span></span></div>
+            <div><span>├── 404.php</span> <span># Template for 404 error pages</span></div>
+            <div><span>├── archive.php</span> <span># Template for archive pages</span></div>
+            <div><span>├── footer.php</span> <span># Theme footer</span></div>
+            <div><span>├── functions.php</span> <span># Theme initialization and includes core files</span></div>
+            <div><span>├── header.php</span> <span># Theme header</span></div>
+            <div><span>├── index.php</span> <span># Fallback template file</span></div>
+            <div><span>├── sidebar.php</span> <span># Sidebar template</span></div>
+            <div><span>├── single.php</span> <span># Template for single posts</span></div>
+            <div><span>├── style.css</span> <span># Main theme metadata and WordPress stylesheet</span></div>
+            <div><span>├── screenshot.png</span> <span># Screenshot of the theme for WordPress dashboard</span></div>
+            <div><span>└── README.md</span> <span># Basic project description and setup instructions</span></div>
+        </div>
 
         <p class="notice"><strong>Tip:</strong> Always keep your theme and plugins updated for the best experience!</p>
     </div>
