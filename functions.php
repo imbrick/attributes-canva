@@ -3,14 +3,19 @@
  * Attributes Canva Theme Functions
  */
 
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
 // Include files from the inc/ folder
 $inc_dir = get_template_directory() . '/inc/';
-require_once $inc_dir . 'enqueue-scripts.php';
-require_once $inc_dir . 'ajax-handlers.php';
-require_once $inc_dir . 'theme-setup.php';
-require_once $inc_dir . 'customizer.php';
-require_once $inc_dir . 'widgets.php';
-require_once $inc_dir . 'starter-content.php';
+
+require_once( $inc_dir . 'enqueue-scripts.php' );
+require_once( $inc_dir . 'ajax-handlers.php' );
+require_once( $inc_dir . 'theme-setup.php' );
+require_once( $inc_dir . 'customizer.php' );
+require_once( $inc_dir . 'widgets.php' );
+require_once( $inc_dir . 'starter-content.php' );
 
 // Add any theme-specific code here, if necessary.
 
@@ -22,7 +27,8 @@ if (!function_exists('attributes_canva_customizer_css')) {
     /**
      * Apply customizer styles dynamically
      */
-    function attributes_canva_customizer_css() {
+    function attributes_canva_customizer_css()
+    {
         $accent_color = esc_attr(get_theme_mod('attributes_canva_accent_color', '#FF5722'));
         echo "<style>
             :root {
