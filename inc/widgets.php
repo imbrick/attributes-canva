@@ -4,11 +4,11 @@
  * Widgets and Sidebars
  */
 
-if (!function_exists('attribute_canva_widgets_init')) {
+if (!function_exists('attributes_canva_widgets_init')) {
     /**
      * Register widget areas (sidebar and footer)
      */
-    function attribute_canva_widgets_init()
+    function attributes_canva_widgets_init()
     {
         // Sidebar widget
         register_sidebar(array(
@@ -32,5 +32,5 @@ if (!function_exists('attribute_canva_widgets_init')) {
             'after_title'   => '</h2>',
         ));
     }
-    add_action('widgets_init', 'attribute_canva_widgets_init');
+    add_action('widgets_init', 'attributes_canva_widgets_init');
 }

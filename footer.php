@@ -18,8 +18,8 @@
             ));
             ?>
         </nav>
-        <p>&copy; <?php echo date('Y'); ?> Attribute. All rights reserved.</p>
-        <a href="#top" class="back-to-top"><?php _e('Back to Top', 'attribute-canva'); ?></a>
+        <p>&copy; <?php echo date('Y'); ?> Attributes. All rights reserved.</p>
+        <a href="#top" class="back-to-top"><?php _e('Back to Top', 'attributes-canva'); ?></a>
     </div>
 </footer>
 

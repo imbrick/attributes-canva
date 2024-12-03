@@ -1,6 +1,6 @@
 <?php
 /**
- * Attribute Canva Theme Functions
+ * Attributes Canva Theme Functions
  */
 
 // Include files from the inc/ folder
@@ -18,25 +18,25 @@ require_once $inc_dir . 'starter-content.php';
  * SEO AND PERFORMANCE
 \**************************/
 
-if (!function_exists('attribute_canva_customizer_css')) {
+if (!function_exists('attributes_canva_customizer_css')) {
     /**
      * Apply customizer styles dynamically
      */
-    function attribute_canva_customizer_css() {
-        $accent_color = esc_attr(get_theme_mod('attribute_canva_accent_color', '#FF5722'));
+    function attributes_canva_customizer_css() {
+        $accent_color = esc_attr(get_theme_mod('attributes_canva_accent_color', '#FF5722'));
         echo "<style>
             :root {
                 --accent-color: " . ($accent_color ?: '#FF5722') . ";
             }
         </style>";
     }
-    add_action('wp_head', 'attribute_canva_customizer_css');
+    add_action('wp_head', 'attributes_canva_customizer_css');
 }
 
 /**
  * Lazy load images for performance
  */
-add_filter('wp_get_attachment_image_attributes', function ($attr) {
+add_filter('wp_get_attachment_image_attributess', function ($attr) {
     if (is_admin() || !isset($attr['loading'])) {
         return $attr;
     }

@@ -4,11 +4,11 @@
  * Theme Setup
  */
 
-if (!function_exists('attribute_canva_theme_setup')) {
+if (!function_exists('attributes_canva_theme_setup')) {
     /**
      * Add theme supports and setup features
      */
-    function attribute_canva_theme_setup()
+    function attributes_canva_theme_setup()
     {
         // Add support for custom logo
         add_theme_support('custom-logo', array(
@@ -36,5 +36,5 @@ if (!function_exists('attribute_canva_theme_setup')) {
             'sidebar' => __('Sidebar Menu', 'attr-canva'),
         ));
     }
-    add_action('after_setup_theme', 'attribute_canva_theme_setup');
+    add_action('after_setup_theme', 'attributes_canva_theme_setup');
 }

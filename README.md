@@ -1,6 +1,6 @@
-# Attribute Canva
+# Attributes Canva
 
-**Attribute Canva** is a customizable WordPress theme designed to streamline website creation with its easy-to-use features and flexibility. This repository hosts the codebase and documentation to help you get started.
+**Attributes Canva** is a customizable WordPress theme designed to streamline website creation with its easy-to-use features and flexibility. This repository hosts the codebase and documentation to help you get started.
 
 ## Features
 
@@ -23,7 +23,7 @@
 1. Navigate to your WordPress Dashboard.
 2. Go to `Appearance > Themes`.
 3. Click `Add New`, then `Upload Theme`.
-4. Select the `attribute-canva.zip` file and click `Install Now`.
+4. Select the `attributes-canva.zip` file and click `Install Now`.
 5. Once installed, activate the theme.
 
 ## Starter Content

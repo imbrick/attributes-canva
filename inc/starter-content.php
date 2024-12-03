@@ -3,17 +3,17 @@
  * Starter Content, Demo Import, Theme Docs, Typography Settings, Contact Widget, and Admin Notices
  */
 
-if (!function_exists('attribute_canva_starter_content')) {
+if (!function_exists('attributes_canva_starter_content')) {
     /**
      * Define and register starter content for the theme
      */
-    function attribute_canva_starter_content() {
+    function attributes_canva_starter_content() {
         $starter_content = array(
             // Define some example posts
             'posts' => array(
                 'home' => array(
                     'post_type'    => 'page',
-                    'post_title'   => __('Welcome to Attribute Canva', 'attr-canva'),
+                    'post_title'   => __('Welcome to Attributes Canva', 'attr-canva'),
                     'post_content' => __('This is your homepage. You can edit this page to customize it for your site.', 'attr-canva'),
                 ),
                 'about' => array(
@@ -68,14 +68,14 @@ if (!function_exists('attribute_canva_starter_content')) {
         // Add support for starter content in the theme
         add_theme_support('starter-content', $starter_content);
     }
-    add_action('after_setup_theme', 'attribute_canva_starter_content');
+    add_action('after_setup_theme', 'attributes_canva_starter_content');
 }
 
-if (!function_exists('attribute_canva_theme_docs')) {
+if (!function_exists('attributes_canva_theme_docs')) {
     /**
      * Add Theme Docs menu to WordPress Admin
      */
-    function attribute_canva_theme_docs() {
+    function attributes_canva_theme_docs() {
         add_menu_page(
             __('Theme Docs', 'attr-canva'),
             __('Theme Docs', 'attr-canva'),
@@ -93,14 +93,14 @@ if (!function_exists('attribute_canva_theme_docs')) {
             3
         );
     }
-    add_action('admin_menu', 'attribute_canva_theme_docs');
+    add_action('admin_menu', 'attributes_canva_theme_docs');
 }
 
-if (!function_exists('attribute_canva_demo_import')) {
+if (!function_exists('attributes_canva_demo_import')) {
     /**
      * Setup demo import configuration
      */
-    function attribute_canva_demo_import() {
+    function attributes_canva_demo_import() {
         if (!class_exists('OCDI_Plugin')) {
             add_action('admin_notices', function () {
                 echo '<div class="notice notice-warning is-dismissible">';
@@ -122,27 +122,27 @@ if (!function_exists('attribute_canva_demo_import')) {
             );
         });
     }
-    add_action('after_setup_theme', 'attribute_canva_demo_import');
+    add_action('after_setup_theme', 'attributes_canva_demo_import');
 }
 
-if (!function_exists('attribute_canva_customize_register')) {
+if (!function_exists('attributes_canva_customize_register')) {
     /**
      * Add Typography Settings to the Customizer
      */
-    function attribute_canva_customize_register($wp_customize) {
-        $wp_customize->add_section('attribute_canva_typography', array(
+    function attributes_canva_customize_register($wp_customize) {
+        $wp_customize->add_section('attributes_canva_typography', array(
             'title'    => __('Typography', 'attr-canva'),
             'priority' => 40,
         ));
 
-        $wp_customize->add_setting('attribute_canva_body_font', array(
+        $wp_customize->add_setting('attributes_canva_body_font', array(
             'default'   => 'Arial',
             'transport' => 'refresh',
         ));
 
-        $wp_customize->add_control('attribute_canva_body_font', array(
+        $wp_customize->add_control('attributes_canva_body_font', array(
             'label'    => __('Body Font', 'attr-canva'),
-            'section'  => 'attribute_canva_typography',
+            'section'  => 'attributes_canva_typography',
             'type'     => 'select',
             'choices'  => array(
                 'Arial'   => 'Arial',
@@ -151,16 +151,16 @@ if (!function_exists('attribute_canva_customize_register')) {
             ),
         ));
     }
-    add_action('customize_register', 'attribute_canva_customize_register');
+    add_action('customize_register', 'attributes_canva_customize_register');
 }
 
-if (!class_exists('Attribute_Canva_Contact_Widget')) {
+if (!class_exists('Attributes_Canva_Contact_Widget')) {
     /**
      * Contact Widget
      */
-    class Attribute_Canva_Contact_Widget extends WP_Widget {
+    class Attributes_Canva_Contact_Widget extends WP_Widget {
         function __construct() {
-            parent::__construct('attribute_contact', __('Contact Info', 'attr-canva'), array(
+            parent::__construct('attributes_contact', __('Contact Info', 'attr-canva'), array(
                 'description' => __('Display contact information.', 'attr-canva'),
             ));
         }
@@ -188,22 +188,22 @@ if (!class_exists('Attribute_Canva_Contact_Widget')) {
         }
     }
 
-    function attribute_canva_register_widgets() {
-        register_widget('Attribute_Canva_Contact_Widget');
+    function attributes_canva_register_widgets() {
+        register_widget('Attributes_Canva_Contact_Widget');
     }
-    add_action('widgets_init', 'attribute_canva_register_widgets');
+    add_action('widgets_init', 'attributes_canva_register_widgets');
 }
 
-if (!function_exists('attribute_canva_welcome_notice')) {
+if (!function_exists('attributes_canva_welcome_notice')) {
     /**
      * Admin Welcome Notice
      */
-    function attribute_canva_welcome_notice() {
+    function attributes_canva_welcome_notice() {
         ?>
         <div class="notice notice-success is-dismissible">
-            <p><?php _e('Welcome to Attribute Canva! Start by visiting the <a href="admin.php?page=theme-docs">Theme Docs</a> or customizing your site in the <a href="customize.php">Customizer</a>.', 'attr-canva'); ?></p>
+            <p><?php _e('Welcome to Attributes Canva! Start by visiting the <a href="admin.php?page=theme-docs">Theme Docs</a> or customizing your site in the <a href="customize.php">Customizer</a>.', 'attr-canva'); ?></p>
         </div>
         <?php
     }
-    add_action('admin_notices', 'attribute_canva_welcome_notice');
+    add_action('admin_notices', 'attributes_canva_welcome_notice');
 }

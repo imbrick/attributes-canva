@@ -27,14 +27,14 @@
             <?php
             the_posts_pagination(array(
                 'mid_size'  => 2,
-                'prev_text' => __('&laquo; Previous', 'attribute-canva'),
-                'next_text' => __('Next &raquo;', 'attribute-canva'),
-                'screen_reader_text' => __('Posts navigation', 'attribute-canva'),
+                'prev_text' => __('&laquo; Previous', 'attributes-canva'),
+                'next_text' => __('Next &raquo;', 'attributes-canva'),
+                'screen_reader_text' => __('Posts navigation', 'attributes-canva'),
             ));
             ?>
         </nav>
     <?php else : ?>
-        <p><?php _e('No content available. Please check back later.', 'attribute-canva'); ?></p>
+        <p><?php _e('No content available. Please check back later.', 'attributes-canva'); ?></p>
     <?php endif; ?>
 </main>
 
