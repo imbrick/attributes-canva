@@ -1,0 +1,358 @@
+/* ===== assets/css/beaver-builder.css ===== */
+
+/* Beaver Builder Specific Styles */
+.fl-builder-content .attributes-canva-module {
+    margin-bottom: 2rem;
+}
+
+.fl-builder-content .hero-module {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.fl-builder-content .hero-module .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.fl-builder-content .hero-module .hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.fl-builder-content .testimonial-module {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.fl-builder-content .testimonial-module .testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    overflow: hidden;
+}
+
+.fl-builder-content .testimonial-module .testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive adjustments for Beaver Builder */
+@media (max-width: 768px) {
+    .fl-builder-content .hero-module .hero-content {
+        padding: 2rem 1rem;
+    }
+
+    .fl-builder-content .hero-module .hero-content h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ===== assets/css/divi-builder.css ===== */
+
+/* Divi Builder Specific Styles */
+.et_pb_module.attributes_canva_hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.et_pb_module.attributes_canva_hero .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.et_pb_module.attributes_canva_hero .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.et_pb_module.attributes_canva_hero .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.et_pb_module.attributes_canva_testimonial {
+    background: #fff;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+.et_pb_module.attributes_canva_testimonial::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4rem;
+    color: #0073aa;
+    font-family: serif;
+}
+
+.et_pb_module.attributes_canva_testimonial .testimonial-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.et_pb_module.attributes_canva_testimonial .testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.et_pb_module.attributes_canva_testimonial .author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.et_pb_module.attributes_canva_testimonial .author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.et_pb_module.attributes_canva_testimonial .author-info h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.et_pb_module.attributes_canva_testimonial .author-info span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Divi responsive adjustments */
+@media (max-width: 980px) {
+    .et_pb_module.attributes_canva_hero .hero-content {
+        padding: 1.5rem;
+    }
+
+    .et_pb_module.attributes_canva_hero .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .et_pb_module.attributes_canva_hero {
+        min-height: 300px;
+    }
+
+    .et_pb_module.attributes_canva_hero .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .et_pb_module.attributes_canva_testimonial {
+        padding: 2rem 1.5rem;
+    }
+
+    .et_pb_module.attributes_canva_testimonial .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ===== assets/css/multilingual.css ===== */
+
+/* Multilingual Support Styles */
+.language-switcher {
+    position: relative;
+    display: inline-block;
+}
+
+.language-switcher-dropdown select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.language-switcher-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.language-switcher-list li a {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.language-switcher-list li a:hover,
+.language-switcher-list li.current-language a {
+    background: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+}
+
+.language-switcher-flags {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.language-switcher-flags a {
+    display: block;
+    width: 24px;
+    height: 18px;
+    border-radius: 2px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.language-switcher-flags a:hover,
+.language-switcher-flags a.current-language {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.2);
+}
+
+.language-switcher-flags img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RTL Language Support */
+body.rtl-language {
+    direction: rtl;
+}
+
+body.rtl-language .site-header {
+    text-align: right;
+}
+
+body.rtl-language .main-navigation ul {
+    flex-direction: row-reverse;
+}
+
+body.rtl-language .header-left {
+    order: 2;
+}
+
+body.rtl-language .header-right {
+    order: 1;
+}
+
+body.rtl-language .post-grid {
+    direction: rtl;
+}
+
+body.rtl-language .entry-meta span {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* Language-specific Typography */
+body.lang-ar,
+body.lang-he,
+body.lang-fa {
+    font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
+}
+
+body.lang-zh,
+body.lang-ja,
+body.lang-ko {
+    font-family: 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+}
+
+body.lang-ru,
+body.lang-bg,
+body.lang-sr {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* Mobile Language Switcher */
+@media (max-width: 768px) {
+    .language-switcher-list {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .language-switcher-flags {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mobile-language-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 9999;
+        padding: 2rem;
+    }
+
+    .mobile-language-menu.active {
+        right: 0;
+    }
+
+    .mobile-language-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+    }
+}
+
+/* Print Styles for Multilingual */
+@media print {
+
+    .language-switcher,
+    .mobile-language-menu,
+    .mobile-language-toggle {
+        display: none !important;
+    }
+}

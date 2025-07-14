@@ -1,11 +1,16 @@
 <?php
+
 /**
  * The main template file.
  *
  * This is a fallback template file in WordPress.
  * It is used to display content when no more specific template is found.
  *
- * @package Attribute Canva
+ * @package Attribute_Canva
+ * @author  Theme Author
+ * @license GPL-2.0+
+ * @link    https://example.com
+ * @since   1.0.0
  */
 get_header(); ?>
 
@@ -18,20 +23,32 @@ get_header(); ?>
                         <h1 class="entry-title"><?php the_title(); ?></h1>
                     <?php else : ?>
                         <h2 class="entry-title">
-                            <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+                            <a href="<?php the_permalink(); ?>" rel="bookmark">
+                                <?php the_title(); ?>
+                            </a>
                         </h2>
                     <?php endif; ?>
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
                     <?php
-                    the_content(sprintf(
-                        wp_kses(
-                            __('Continue reading %s <span class="meta-nav">&rarr;</span>', 'attribute-canva'),
-                            ['span' => ['class' => []]]
-                        ),
-                        the_title('<span class="screen-reader-text">"', '"</span>', false)
-                    ));
+                    the_content(
+                        sprintf(
+                            wp_kses(
+                                __(
+                                    'Continue reading %s ' .
+                                        '<span class="meta-nav">&rarr;</span>',
+                                    'attribute-canva'
+                                ),
+                                ['span' => ['class' => []]]
+                            ),
+                            the_title(
+                                '<span class="screen-reader-text">"',
+                                '"</span>',
+                                false
+                            )
+                        )
+                    );
                     ?>
                 </div><!-- .entry-content -->
 
@@ -45,7 +62,9 @@ get_header(); ?>
     <?php else : ?>
         <section class="no-results not-found">
             <header class="page-header">
-                <h1 class="page-title"><?php esc_html_e('Nothing Found', 'attribute-canva'); ?></h1>
+                <h1 class="page-title">
+                    <?php esc_html_e('Nothing Found', 'attribute-canva'); ?>
+                </h1>
             </header><!-- .page-header -->
 
             <div class="page-content">
@@ -54,7 +73,11 @@ get_header(); ?>
                         <?php
                         printf(
                             wp_kses(
-                                __('Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'attribute-canva'),
+                                __(
+                                    'Ready to publish your first post? ' .
+                                        '<a href="%1$s">Get started here</a>.',
+                                    'attribute-canva'
+                                ),
                                 ['a' => ['href' => []]]
                             ),
                             esc_url(admin_url('post-new.php'))
