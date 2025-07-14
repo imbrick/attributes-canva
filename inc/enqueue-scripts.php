@@ -10,7 +10,7 @@ if (!function_exists('attributes_canva_enqueue_scripts')) {
      * Ensures proper support for child themes.
      */
     function attributes_canva_enqueue_scripts()
-    {        
+    {
         // Enqueue custom CSS from child or parent theme
         wp_enqueue_style(
             'attributes-style',
@@ -60,8 +60,8 @@ if (!function_exists('attributes_canva_enqueue_scripts')) {
             true
         );
 
-        // Pass AJAX URL and nonce to the script
-        wp_localize_script('attr-ajax', 'attrAjax', array(
+        // FIXED: Pass AJAX URL and nonce to the script with correct variable name
+        wp_localize_script('attributes-ajax', 'attributesAjax', array(
             'ajax_url' => admin_url('admin-ajax.php'), // WordPress AJAX handler
             'nonce'    => wp_create_nonce('attr_ajax_nonce') // Nonce for security
         ));

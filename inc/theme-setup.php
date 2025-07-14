@@ -40,8 +40,8 @@ if (!function_exists('attributes_canva_theme_setup')) {
         // Support for Elementor Canvas Template
         add_theme_support('elementor-canvas');
 
-        // Add custom theme support for full-width layout
-        add_theme_support('elementor-full-width')
+        // Add custom theme support for full-width layout (FIXED: Added missing semicolon)
+        add_theme_support('elementor-full-width');
 
         // Add support for WooCommerce
         add_theme_support('woocommerce');
@@ -52,10 +52,10 @@ if (!function_exists('attributes_canva_theme_setup')) {
 
         // Register navigation menus
         register_nav_menus(array(
-            'primary' => __('Primary Menu', 'attr-canva'),
-            'header'  => __('Header Menu', 'attr-canva'),
-            'footer'  => __('Footer Menu', 'attr-canva'),
-            'sidebar' => __('Sidebar Menu', 'attr-canva'),
+            'primary' => __('Primary Menu', 'attribute-canva'),
+            'header'  => __('Header Menu', 'attribute-canva'),
+            'footer'  => __('Footer Menu', 'attribute-canva'),
+            'sidebar' => __('Sidebar Menu', 'attribute-canva'),
         ));
 
         // Gutenberg wide images.
@@ -64,9 +64,14 @@ if (!function_exists('attributes_canva_theme_setup')) {
     add_action('after_setup_theme', 'attributes_canva_theme_setup');
 }
 
-
-function attribute_canva_register_elementor_locations($elementor_theme_manager) {
-    $elementor_theme_manager->register_location('header');
-    $elementor_theme_manager->register_location('footer');
+if (!function_exists('attribute_canva_register_elementor_locations')) {
+    /**
+     * Register Elementor theme locations
+     */
+    function attribute_canva_register_elementor_locations($elementor_theme_manager)
+    {
+        $elementor_theme_manager->register_location('header');
+        $elementor_theme_manager->register_location('footer');
+    }
+    add_action('elementor/theme/register_locations', 'attribute_canva_register_elementor_locations');
 }
-add_action('elementor/theme/register_locations', 'attribute_canva_register_elementor_locations');

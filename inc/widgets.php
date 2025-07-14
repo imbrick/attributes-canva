@@ -10,30 +10,31 @@ if (!function_exists('attributes_canva_widgets_init')) {
      */
     function attributes_canva_widgets_init()
     {
-        // Sidebar widget
+        // Primary Sidebar widget
         register_sidebar([
-            'name'          => __('Primary Sidebar', 'attr-canva'),
+            'name'          => __('Primary Sidebar', 'attribute-canva'),
             'id'            => 'sidebar-1',
-            'description'   => __('Widgets added here will appear in the sidebar.', 'attr-canva'),
+            'description'   => __('Widgets added here will appear in the sidebar.', 'attribute-canva'),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget'  => '</div>',
             'before_title'  => '<h2 class="widget-title">',
             'after_title'   => '</h2>',
         ]);
-    }       
 
-        // Footer widget
-        register_sidebar(array(
-            'name'          => __('Footer', 'attr-canva'),
-            'id'            => 'footer-1',
-            'description'   => __('Add footer widgets here.', 'attr-canva'),
-            'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
-            'after_widget'  => '</div>',
-            'before_title'  => '<h2 class="footer-widget-title">',
-            'after_title'   => '</h2>',
-        ));
+        // Footer widget areas (3 columns)
+        for ($i = 1; $i <= 3; $i++) {
+            register_sidebar(array(
+                'name'          => sprintf(__('Footer %d', 'attribute-canva'), $i),
+                'id'            => 'footer-' . $i,
+                'description'   => sprintf(__('Add footer widgets here for column %d.', 'attribute-canva'), $i),
+                'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h2 class="footer-widget-title">',
+                'after_title'   => '</h2>',
+            ));
+        }
 
-        // Page widget
+        // Page sidebar widget
         register_sidebar([
             'name'          => __('Page Sidebar', 'attribute-canva'),
             'id'            => 'page-sidebar',
