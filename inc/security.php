@@ -636,3 +636,29 @@ add_action('init', 'attributes_canva_init_security');
 // Register secure AJAX handlers
 add_action('wp_ajax_attributes_canva_action', 'attributes_canva_secure_ajax_handler');
 add_action('wp_ajax_nopriv_attributes_canva_action', 'attributes_canva_secure_ajax_handler');
+
+// In inc/security.php - Add after existing code
+class Attributes_Canva_CSRF_Protection
+{
+
+    public static function generate_token()
+    {
+        if (!session_id()) {
+            session_start();
+        }
+
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['csrf_token'] = $token;
+        return $token;
+    }
+
+    public static function verify_token($token)
+    {
+        if (!session_id()) {
+            session_start();
+        }
+
+        return isset($_SESSION['csrf_token']) &&
+            hash_equals($_SESSION['csrf_token'], $token);
+    }
+}

@@ -16,8 +16,35 @@ Domain Path: /languages
 */
 
 /* 
- * Import main stylesheet
- * This file is required by WordPress for theme recognition
- * The actual styles are in assets/css/style.css for better organization
+ * Main theme styles
+ * Additional styles are loaded conditionally via enqueue-scripts.php
  */
+
+/* Critical CSS - Above the fold styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Import additional styles */
 @import url("assets/css/style.css");
