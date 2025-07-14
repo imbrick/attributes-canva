@@ -1,24 +1,13 @@
 <?php
-
-/**
- * Enhanced error handling and constants
- */
+// Remove duplicate includes and consolidate
 if (!defined('ABSPATH')) {
     exit;
 }
 
-// Define theme constants with error checking
-if (!defined('ATTRIBUTE_CANVA_VERSION')) {
-    define('ATTRIBUTE_CANVA_VERSION', '1.1.0');
-}
-
-if (!defined('ATTRIBUTE_CANVA_THEME_DIR')) {
-    define('ATTRIBUTE_CANVA_THEME_DIR', get_template_directory());
-}
-
-if (!defined('ATTRIBUTE_CANVA_THEME_URI')) {
-    define('ATTRIBUTE_CANVA_THEME_URI', get_template_directory_uri());
-}
+// Define constants
+define('ATTRIBUTE_CANVA_VERSION', '1.1.0');
+define('ATTRIBUTE_CANVA_THEME_DIR', get_template_directory());
+define('ATTRIBUTE_CANVA_THEME_URI', get_template_directory_uri());
 
 // Enhanced file inclusion with error checking
 function attributes_canva_require_file($file_path)
@@ -27,12 +16,14 @@ function attributes_canva_require_file($file_path)
 
     if (file_exists($full_path)) {
         require_once $full_path;
+        return true;
     } else {
         error_log("Attributes Canva: Missing file - " . $full_path);
+        return false;
     }
 }
 
-// Load core files with error handling
+// Load core files ONCE
 $core_files = [
     '/inc/theme-setup.php',
     '/inc/enqueue-scripts.php',
@@ -42,11 +33,18 @@ $core_files = [
     '/inc/starter-content.php',
     '/inc/page-builders.php',
     '/inc/acf-integration.php',
-    '/inc/multilingual.php'
+    '/inc/multilingual.php',
+    '/inc/performance.php',
+    '/inc/security.php'
 ];
 
 foreach ($core_files as $file) {
     attributes_canva_require_file($file);
+}
+
+// Conditional includes
+if (did_action('elementor/loaded')) {
+    attributes_canva_require_file('/inc/elementor/custom-widget.php');
 }
 
 // Include core files from the inc/ folder
