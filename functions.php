@@ -250,6 +250,48 @@ if (defined('ATTRIBUTES_CANVA_DEBUG') && ATTRIBUTES_CANVA_DEBUG) {
     set_error_handler('attributes_canva_error_handler');
 }
 
+
+// Comment Callback Function
+if (!function_exists('attributes_canva_comment_callback')) {
+    function attributes_canva_comment_callback($comment, $args, $depth)
+    {
+        $tag = ($args['style'] === 'div') ? 'div' : 'li';
+?>
+        <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
+            <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+                <footer class="comment-meta">
+                    <div class="comment-author vcard">
+                        <?php echo get_avatar($comment, $args['avatar_size']); ?>
+                        <?php printf('<b class="fn">%s</b>', get_comment_author_link()); ?>
+                    </div>
+
+                    <div class="comment-metadata">
+                        <a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>">
+                            <time datetime="<?php comment_time('c'); ?>">
+                                <?php printf('%1$s at %2$s', get_comment_date(), get_comment_time()); ?>
+                            </time>
+                        </a>
+                        <?php edit_comment_link(__('Edit', 'attribute-canva'), '<span class="edit-link">', '</span>'); ?>
+                    </div>
+                </footer>
+
+                <div class="comment-content">
+                    <?php comment_text(); ?>
+                </div>
+
+                <?php
+                comment_reply_link(array_merge($args, [
+                    'add_below' => 'div-comment',
+                    'depth' => $depth,
+                    'max_depth' => $args['max_depth']
+                ]));
+                ?>
+            </article>
+    <?php
+    }
+}
+
+
 /**************************\
  * ENHANCED UTILITY FUNCTIONS
 \**************************/
@@ -579,6 +621,87 @@ function attributes_canva_enhanced_schema_markup()
     }
 }
 add_action('wp_head', 'attributes_canva_enhanced_schema_markup');
+
+// Add to functions.php
+function attributes_canva_schema_markup()
+{
+    if (is_single()) {
+        $schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Article',
+            'headline' => get_the_title(),
+            'description' => get_the_excerpt(),
+            'author' => [
+                '@type' => 'Person',
+                'name' => get_the_author(),
+                'url' => get_author_posts_url(get_the_author_meta('ID'))
+            ],
+            'datePublished' => get_the_date('c'),
+            'dateModified' => get_the_modified_date('c'),
+            'publisher' => [
+                '@type' => 'Organization',
+                'name' => get_bloginfo('name'),
+                'url' => home_url(),
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => get_theme_mod('custom_logo') ? wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full') : ''
+                ]
+            ]
+        ];
+
+        if (has_post_thumbnail()) {
+            $schema['image'] = [
+                '@type' => 'ImageObject',
+                'url' => get_the_post_thumbnail_url(null, 'large'),
+                'width' => 1200,
+                'height' => 630
+            ];
+        }
+
+        echo '<script type="application/ld+json">' . wp_json_encode($schema) . '</script>';
+    }
+
+    // Breadcrumb Schema
+    if (!is_front_page()) {
+        $items = [];
+        $items[] = [
+            '@type' => 'ListItem',
+            'position' => 1,
+            'name' => 'Home',
+            'item' => home_url()
+        ];
+
+        if (is_category() || is_single()) {
+            $categories = get_the_category();
+            if ($categories) {
+                $items[] = [
+                    '@type' => 'ListItem',
+                    'position' => 2,
+                    'name' => $categories[0]->name,
+                    'item' => get_category_link($categories[0]->term_id)
+                ];
+            }
+        }
+
+        if (is_single()) {
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => count($items) + 1,
+                'name' => get_the_title(),
+                'item' => get_permalink()
+            ];
+        }
+
+        $breadcrumb_schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => $items
+        ];
+
+        echo '<script type="application/ld+json">' . wp_json_encode($breadcrumb_schema) . '</script>';
+    }
+}
+add_action('wp_head', 'attributes_canva_schema_markup');
 
 /**
  * Performance: Preload critical resources

@@ -80,6 +80,56 @@ if (!function_exists('attributes_canva_customize_register')) {
             'description' => __('Main text color for content.', 'attribute-canva'),
         )));
 
+        // Advanced Color Options
+        $wp_customize->add_setting('attributes_canva_gradient_bg', [
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'sanitize_text_field',
+        ]);
+
+        $wp_customize->add_control('attributes_canva_gradient_bg', [
+            'label' => __('Gradient Background', 'attribute-canva'),
+            'section' => 'attributes_canva_colors',
+            'type' => 'text',
+            'description' => __('CSS gradient (e.g., linear-gradient(45deg, #ff6b6b, #4ecdc4))', 'attribute-canva'),
+        ]);
+
+        // Border Radius Control
+        $wp_customize->add_setting('attributes_canva_border_radius', [
+            'default' => 8,
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'absint',
+        ]);
+
+        $wp_customize->add_control('attributes_canva_border_radius', [
+            'label' => __('Border Radius (px)', 'attribute-canva'),
+            'section' => 'attributes_canva_layout',
+            'type' => 'range',
+            'input_attrs' => [
+                'min' => 0,
+                'max' => 50,
+                'step' => 1,
+            ],
+        ]);
+
+        // Animation Speed Control
+        $wp_customize->add_setting('attributes_canva_animation_speed', [
+            'default' => 'normal',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'attributes_canva_sanitize_select',
+        ]);
+
+        $wp_customize->add_control('attributes_canva_animation_speed', [
+            'label' => __('Animation Speed', 'attribute-canva'),
+            'section' => 'attributes_canva_performance',
+            'type' => 'select',
+            'choices' => [
+                'fast' => __('Fast (0.15s)', 'attribute-canva'),
+                'normal' => __('Normal (0.3s)', 'attribute-canva'),
+                'slow' => __('Slow (0.5s)', 'attribute-canva'),
+            ],
+        ]);
+
         // ======================
         // TYPOGRAPHY SECTION
         // ======================
@@ -281,6 +331,33 @@ if (!function_exists('attributes_canva_customize_register')) {
             'type'     => 'url',
             'active_callback' => 'attributes_canva_is_header_cta_enabled',
         ));
+
+        // Custom Logo Variants
+        $wp_customize->add_setting('attributes_canva_logo_dark', [
+            'default' => '',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint',
+        ]);
+
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'attributes_canva_logo_dark', [
+            'label' => __('Dark Mode Logo', 'attribute-canva'),
+            'section' => 'title_tagline',
+            'mime_type' => 'image',
+            'description' => __('Logo for dark mode (optional)', 'attribute-canva'),
+        ]));
+
+        $wp_customize->add_setting('attributes_canva_logo_mobile', [
+            'default' => '',
+            'transport' => 'refresh',
+            'sanitize_callback' => 'absint',
+        ]);
+
+        $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'attributes_canva_logo_mobile', [
+            'label' => __('Mobile Logo', 'attribute-canva'),
+            'section' => 'title_tagline',
+            'mime_type' => 'image',
+            'description' => __('Smaller logo for mobile devices (optional)', 'attribute-canva'),
+        ]));
 
         // ======================
         // LAYOUT SECTION

@@ -1,190 +1,1358 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Attributes Canva Theme Documentation">
-    <title>Attributes Canva Theme Documentation</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #0073aa;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        a {
-            color: #0073aa;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-        code {
-            background: #f4f4f4;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-size: 0.95em;
-        }
-        .notice {
-            background: #fff3cd;
-            padding: 1rem;
-            border-left: 4px solid #ffeeba;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-        }
-        .container > div > div {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .container > div > div > span {
-            min-width: 200px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Attributes Canva Theme Documentation</h1>
 
-        <p>Welcome to the <strong>Attributes Canva</strong> theme! This documentation will guide you through setting up and customizing your theme. If you have any questions, feel free to reach out via our support channels.</p>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Markdown Sidebar Tabs</title>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#installation">Installation</a></li>
-            <li><a href="#starter-content">Starter Content</a></li>
-            <li><a href="#customizer">Using the Customizer</a></li>
-            <li><a href="#demo-import">Demo Content Import</a></li>
-            <li><a href="#contact-widget">Using the Contact Widget</a></li>
-            <li><a href="#support">Getting Support</a></li>
-        </ul>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', sans-serif;
+                background: #f5f7fa;
+                color: #333;
+            }
 
-        <hr>
+            .wrapper {
+                width: 100%;
+            }
 
-        <h2 id="installation">Installation</h2>
-        <p>To install the <strong>Attributes Canva</strong> theme:</p>
-        <ul>
-            <li>Go to your WordPress dashboard and navigate to <code>Appearance &gt; Themes</code>.</li>
-            <li>Click on <code>Add New</code>, then <code>Upload Theme</code>.</li>
-            <li>Choose the <code>attributes-canva.zip</code> file and click <code>Install Now</code>.</li>
-            <li>Activate the theme after installation.</li>
-        </ul>
-        <p>You can now begin customizing your site!</p>
+            .title {
+                margin: 2rem auto;
+                text-align: center;
+                font-size: 2rem;
+                color: #0073aa;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-family: 'Segoe UI', sans-serif;
+                padding: 1rem;
+            }
 
-        <h2 id="starter-content">Starter Content</h2>
-        <p>When you activate the theme on a fresh WordPress install, starter content will be automatically added. This includes:</p>
-        <ul>
-            <li>A homepage with a welcome message.</li>
-            <li>An "About Us" page to share your story.</li>
-            <li>A "Blog" page for your posts.</li>
-            <li>A "Contact" page with placeholder text for contact details.</li>
-        </ul>
-        <p>You can customize or delete this content from the WordPress editor.</p>
+            .container {
+                display: flex;
+                max-width: 1024px;
+                min-height: 100vh;
+                margin: 2rem auto;
+                padding: 1rem;
+            }
 
-        <h2 id="customizer">Using the Customizer</h2>
-        <p>The Customizer allows you to change your site's appearance in real-time. To access the Customizer:</p>
-        <ul>
-            <li>Go to <code>Appearance &gt; Customize</code> in your WordPress dashboard.</li>
-        </ul>
-        <p>The Customizer includes settings for:</p>
-        <ul>
-            <li><strong>Typography:</strong> Choose a font for your site's body text.</li>
-            <li><strong>Colors:</strong> Adjust the accent color to match your brand.</li>
-            <li><strong>Menus:</strong> Manage and assign navigation menus.</li>
-        </ul>
+            .sidebar {
+                width: 250px;
+                background: #1e2a38;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                color: #fff;
+            }
 
-        <h2 id="demo-import">Demo Content Import</h2>
-        <p>If you want your site to look exactly like the demo, follow these steps:</p>
-        <ol>
-            <li>Install and activate the <strong>One Click Demo Import</strong> plugin.</li>
-            <li>Go to <code>Appearance &gt; Import Demo Data</code>.</li>
-            <li>Select the demo content and click <code>Import</code>.</li>
-        </ol>
-        <p><strong>Note:</strong> Ensure all recommended plugins are installed before importing demo content.</p>
+            .sidebar button {
+                background: none;
+                border: none;
+                color: #cfd8dc;
+                text-align: left;
+                padding: 0.5rem 1rem;
+                cursor: pointer;
+                border-left: 4px solid transparent;
+                font-weight: bold;
+                transition: all 0.2s ease-in-out;
+            }
 
-        <h2 id="contact-widget">Using the Contact Widget</h2>
-        <p>The <strong>Contact Widget</strong> allows you to display contact information in your sidebar or footer. To use it:</p>
-        <ul>
-            <li>Go to <code>Appearance &gt; Widgets</code>.</li>
-            <li>Drag and drop the <strong>Contact Info</strong> widget into your desired widget area.</li>
-            <li>Fill out the title and contact details, then click <code>Save</code>.</li>
-        </ul>
+            .sidebar button:hover,
+            .sidebar button.active {
+                color: #fff;
+                background: #2a3b4c;
+                border-left: 4px solid #00bcd4;
+            }
 
-        <h2 id="support">Getting Support</h2>
-        <p>If you need help, you can:</p>
-        <ul>
-            <li>Check the <strong>Theme Docs</strong> in your WordPress admin menu.</li>
-            <li>Visit our <a href="https://example.com/support">support page</a>.</li>
-        </ul>
+            .content {
+                flex: 1;
+                padding: 2rem;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                overflow-y: auto;
+            }
 
-        <h2 id="structure">Theme structure</h2>
-        <p>If you need help, you can:</p>
-        <div>
-            <div><span>attribute-canva/</span> <span></span></div>
-            <div><span>├── assets/</span> <span># Contains all static assets (CSS, JS, images, etc.)</span></div>
-            <div><span>│ &nbsp; ├── css/</div>
-            <div><span>│ &nbsp; │ &nbsp; ├── style.css</span> <span># Main theme stylesheet (required by WordPress)</span></div>
-            <div><span>│ &nbsp; │ &nbsp; ├── dark-mode.css</span> <span># Styles for dark mode (conditionally loaded)</span></div>
-            <div><span>│ &nbsp; ├── js/</div>
-            <div><span>│ &nbsp; │ &nbsp; ├── script.js</span> <span># Main theme JavaScript</span></div>
-            <div><span>│ &nbsp; │ &nbsp; ├── dark-mode.js</span> <span># Dark mode toggle script</span></div>
-            <div><span>│ &nbsp; │ &nbsp; ├── ajax.js</span> <span># AJAX functionality</span></div>
-            <div><span>│ &nbsp; ├── images/</span> <span># Theme images</span></div>
-            <div><span>│ &nbsp; &nbsp; &nbsp; ├── logo.png</span> <span># Example logo</span></div>
-            <div><span>│</span><span></span></div>
-            <div><span>├── docs/</span> <span># Documentation for theme users</span></div>
-            <div><span>│ &nbsp; ├── documentation.html</span> <span># HTML file with detailed setup and usage instructions</span></div>
-            <div><span>│</span><span></span></div>
-            <div><span>├── inc/</span> <span># Core theme functionality (separate into logical parts)</span></div>
-            <div><span>│ &nbsp; ├── ajax-handlers.php</span> <span># Handles backend AJAX calls</span></div>
-            <div><span>│ &nbsp; ├── customizer.php</span> <span># Manages theme options via the WordPress Customizer</span></div>
-            <div><span>│ &nbsp; ├── enqueue-scripts.php</span> <span># Enqueues styles and scripts</span></div>
-            <div><span>│ &nbsp; ├── starter-content.php</span> <span># Starter content for new installs</span></div>
-            <div><span>│ &nbsp; ├── theme-setup.php</span> <span># Registers theme features like menus, thumbnails, etc.</span></div>
-            <div><span>│ &nbsp; ├── widgets.php</span> <span># Registers widgetized areas</span></div>
-            <div><span>│</span><span></span></div>
-            <div><span>├── page-templates/</span> <span># Custom page templates for specific layouts</span></div>
-            <div><span>│ &nbsp; ├── elementor-blank.php</span> <span># Blank template for Elementor compatibility</span></div>
-            <div><span>│</span><span></span></div>
-            <div><span>├── templates-parts/</span> <span># Reusable template parts</span></div>
-            <div><span>│ &nbsp; ├── header/</span> <span># Header-related template parts</span></div>
-            <div><span>│ &nbsp; │ &nbsp; ├── header-main.php</span> <span># Main site header</span></div>
-            <div><span>│ &nbsp; ├── footer/</span> <span># Footer-related template parts</span></div>
-            <div><span>│ &nbsp; &nbsp; &nbsp; ├── footer-widgets.php</span> <span># Footer widgets</span></div>
-            <div><span>│</span><span></span></div>
-            <div><span>├── 404.php</span> <span># Template for 404 error pages</span></div>
-            <div><span>├── archive.php</span> <span># Template for archive pages</span></div>
-            <div><span>├── footer.php</span> <span># Theme footer</span></div>
-            <div><span>├── functions.php</span> <span># Theme initialization and includes core files</span></div>
-            <div><span>├── header.php</span> <span># Theme header</span></div>
-            <div><span>├── index.php</span> <span># Fallback template file</span></div>
-            <div><span>├── sidebar.php</span> <span># Sidebar template</span></div>
-            <div><span>├── single.php</span> <span># Template for single posts</span></div>
-            <div><span>├── style.css</span> <span># Main theme metadata and WordPress stylesheet</span></div>
-            <div><span>├── screenshot.png</span> <span># Screenshot of the theme for WordPress dashboard</span></div>
-            <div><span>└── README.md</span> <span># Basic project description and setup instructions</span></div>
+            .tab {
+                display: none;
+            }
+
+            .tab.active {
+                display: block;
+            }
+
+            h2 {
+                margin-top: 0;
+                color: #0073aa;
+            }
+
+            pre {
+                background: #f0f0f0;
+                padding: 0.5rem;
+                overflow-x: auto;
+            }
+
+            code {
+                font-family: monospace;
+                background: #e0e0e0;
+                padding: 0.1rem 0.3rem;
+                border-radius: 3px;
+            }
+
+            @media (max-width: 768px) {
+                .wrapper {
+                    flex-direction: column;
+                }
+
+                .sidebar {
+                    width: 100%;
+                    flex-direction: row;
+                    overflow-x: auto;
+                }
+
+                .sidebar button {
+                    flex: 1;
+                    white-space: nowrap;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <h1 class="title">Attributes Canva Theme Documentation</h1>
+            <div class="container">
+                <div class="sidebar" id="menu"></div>
+                <div class="content" id="tabs"></div>
+            </div>
         </div>
 
-        <p class="notice"><strong>Tip:</strong> Always keep your theme and plugins updated for the best experience!</p>
-    </div>
-</body>
+        <!-- Hidden Markdown Content -->
+        <script id="markdown" type="text/markdown">
+# Attributes Canva Theme - Complete Documentation
+
+## 📖 Table of Contents
+
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Quick Start Guide](#quick-start-guide)
+4. [Theme Features](#theme-features)
+5. [Customization](#customization)
+6. [Page Builders](#page-builders)
+7. [Multilingual Support](#multilingual-support)
+8. [Performance](#performance)
+9. [Developer Guide](#developer-guide)
+10. [Troubleshooting](#troubleshooting)
+11. [Support](#support)
+
+---
+
+## 🎯 Overview
+
+**Attributes Canva** is a modern, performance-optimized WordPress theme designed for maximum flexibility and ease of use. Built with clean code and contemporary design principles, it provides the perfect foundation for any website.
+
+### Key Features
+
+- ⚡ **Lightning Fast** - Optimized for Core Web Vitals
+- 🎨 **Visual Page Builders** - Elementor, Beaver Builder, Divi support
+- 🌍 **Multilingual Ready** - WPML, Polylang, qTranslate compatible
+- 🌙 **Dark Mode** - Built-in dark mode toggle
+- 📱 **Mobile First** - Responsive across all devices
+- ♿ **Accessibility Ready** - WCAG 2.1 AA compliant
+- 🛡️ **Security Enhanced** - Multiple security layers
+- 🔧 **Developer Friendly** - Hooks, filters, and clean code
+
+### Technical Specifications
+
+- **Version:** 1.1.0
+- **WordPress:** 5.8+ (Tested up to 6.4+)
+- **PHP:** 7.4+ (Recommended: 8.1+)
+- **License:** GPL v2+
+- **Text Domain:** attribute-canva
+
+---
+
+## 🚀 Installation
+
+### Method 1: WordPress Admin (Recommended)
+
+1. **Download** the theme ZIP file
+2. Go to **Appearance → Themes** in WordPress admin
+3. Click **Add New → Upload Theme**
+4. Choose the ZIP file and click **Install Now**
+5. Click **Activate** after installation
+
+### Method 2: FTP Upload
+
+1. Extract the ZIP file
+2. Upload the `attribute-canva` folder to `/wp-content/themes/`
+3. Go to **Appearance → Themes** in WordPress admin
+4. nd **Attributes Canva** and click \*\*Activate
+
+### Method 3: WordPress CLI
+
+```bash
+wp theme install attribute-canva.zip --activate
+```
+
+### Post-Installation Setup
+
+After activation, you'll see a welcome message with setup options:
+
+1. **Install Recommended Plugins** (optional but recommended)
+2. **Import Demo Content** (optional)
+3. Configure Basic Settings
+
+---
+
+## ⚡ Quick Start Guide
+
+### 1. First Steps (5 minutes)
+
+#### Configure Basic Settings
+
+1. Go to **Appearance → Customize**
+2. Set your **Site Identity** (logo, title, tagline)
+3. Choose your **Colors** in Theme Colors section
+4. Select your **Typography** preferences
+5. Click **Publish** to save changes
+
+#### Create Essential Pages
+
+```
+Homepage → Set as front page
+About → Tell your story
+Blog → Set as posts page
+Contact → Add contact information
+Privacy Policy → WordPress requirement
+```
+
+### 2. Menu Setup (3 minutes)
+
+1. Go to **Appearance → Menus**
+2. Create a new menu called "Main Menu"
+3. Add your pages to the menu
+4. Assign to "Primary Menu" location
+5. Save the menu
+
+### 3. Widget Configuration (2 minutes)
+
+1. Go to **Appearance → Widgets**
+2. Add widgets to:
+   - **Primary Sidebar** (blog sidebar)
+   - **Footer 1, 2, 3** (footer columns)
+3. Recommended widgets:
+   - Search
+   - Recent Posts
+   - Categories
+   - Tag Cloud
+
+---
+
+## 🎨 Theme Features
+
+### Design Features
+
+#### Modern Layout System
+
+- **Flexible containers** with customizable widths
+- **Grid-based layouts** for consistent spacing
+- **Clean typography** with Google Fonts integration
+- **Smooth animations** and micro-interactions
+
+#### Color System
+
+```css
+Primary Color: #3182ce (Customizable)
+Secondary Color: #64748b (Customizable)
+Accent Color: #f59e0b (Customizable)
+Text Color: #1f2937 (Customizable)
+```
+
+#### Typography Scale
+
+- **Headings:** Inter (Default, customizable)
+- **Body Text:** Inter (Default, customizable)
+- **Font Sizes:** 14px - 32px range
+- **Line Heights:** 1.2 - 2.0 range
+
+### Interactive Features
+
+#### Dark Mode Toggle
+
+- **Automatic detection** of user preference
+- **Manual toggle button** (customizable position)
+- **Smooth transitions** between modes
+- **Customizer preview** support
+
+#### Mobile Menu
+
+- **Hamburger menu** for mobile devices
+- **Smooth slide animations**
+- **Keyboard navigation** support
+- **Touch-friendly** interactions
+
+#### Search Enhancement
+
+- **Live search** (optional)
+- **Improved search form** styling
+- **Search results** optimization
+- **No results** handling
+
+### Performance Features
+
+#### Speed Optimizations
+
+- **Critical CSS** extraction
+- **Lazy loading** for images
+- **Conditional asset** loading
+- **Minified resources**
+- **Browser caching** headers
+
+#### Core Web Vitals
+
+- **LCP:** < 2.5s (Largest Contentful Paint)
+- **FID:** < 100ms (First Input Delay)
+- **CLS:** < 0.1 (Cumulative Layout Shift)
+
+---
+
+## 🎛️ Customization
+
+### Theme Customizer
+
+Access via Appearance → Customize
+
+#### Theme Colors
+
+```
+Primary Color: Main brand color
+Secondary Color: Supporting color
+Accent Color: Highlight color
+Text Color: Main text color
+Background: Site background
+```
+
+#### Typography
+
+```
+Body Font: Main text font
+Heading Font: Title fonts
+Font Size: Base size (14-22px)
+Line Height: Text spacing (1.2-2.0)
+Font Weight: Text thickness
+```
+
+#### Layout Options
+
+```
+Container Width: 960-1600px
+Content Spacing: Compact/Standard/Relaxed/Loose
+Sidebar Position: Left/Right/None
+Header Layout: 4 different styles
+Footer Columns: 1-4 columns
+```
+
+#### Header Settings
+
+```
+Sticky Header: Enable/disable
+Header Background: Color picker
+Logo Variants: Regular/Dark/Mobile
+Search in Header: Show/hide
+CTA Button: Customizable text & URL
+```
+
+#### Blog Options
+
+```
+Layout: List/Grid/Masonry
+Columns: 1-4 columns
+Featured Images: Show/hide
+Excerpts: Show/hide with length
+Reading Time: Show/hide
+Meta Information: Flexible display
+```
+
+#### Footer Settings
+
+```
+Background Color: Color picker
+Text Color: Color picker
+Widget Columns: 1-4 columns
+Back to Top: Enable/disable
+Custom Footer Text: HTML support
+```
+
+#### Performance Settings
+
+```
+Lazy Loading: Enable/disable
+Google Fonts: Enable/disable
+Dark Mode: Enable/disable
+Smooth Scrolling: Enable/disable
+Animation Speed: Fast/Normal/Slow
+```
+
+### Advanced Custom Fields (ACF)
+
+If ACF is installed, additional options become available:
+
+#### Page Settings
+
+- **Hide Page Title:** Checkbox
+- **Custom Page Class:** Text input
+- **Page Layout:** Dropdown selection
+- **Custom Background:** Image upload
+
+#### Post Enhancements
+
+- **Featured Video:** URL input
+- **Post Subtitle:** Text input
+- **Reading Time:** Manual override
+- **Custom Meta:** Additional fields
+
+#### Global Options
+
+- **Theme Options:** Site-wide settings
+- **Social Media:** All platform links
+- **Analytics:** Google Analytics integration
+- **Custom CSS:** Additional styling
+
+### CSS Custom Properties
+
+The theme uses CSS custom properties for easy customization:
+
+```css
+:root {
+  --primary-color: #3182ce;
+  --secondary-color: #64748b;
+  --accent-color: #f59e0b;
+  --text-color: #1f2937;
+  --body-font: "Inter", sans-serif;
+  --heading-font: "Inter", sans-serif;
+  --container-width: 1200px;
+  --border-radius: 8px;
+  --animation-speed: 0.3s;
+}
+```
+
+---
+
+## 🏗️ Page Builders
+
+### Elementor Integration
+
+#### Compatibility
+
+- ✅ **Elementor Free** - Full support
+- ✅ **Elementor Pro** - Advanced features
+- ✅ **Theme Builder** - Header/footer replacement
+- ✅ **Canvas Template** - Blank page template
+
+#### Custom Widgets
+
+1. Attributes Hero Section
+
+   - Customizable background
+   - Overlay options
+   - CTA buttons
+   - Responsive design
+
+2. Attributes Testimonial
+
+   - Star ratings
+   - Author photos
+   - Carousel layouts
+   - Schema markup
+
+3. **Attributes Contact Form**
+   - AJAX submission
+   - Spam protection
+   - Custom styling
+   - Success messages
+
+#### Usage Instructions
+
+1. Install Elementor plugin
+2. Edit any page with Elementor
+3. Find "Attributes Canva" widgets in the panel
+4. Drag and drop to use
+5. Customize in the widget settings
+
+### Beaver Builder Integration
+
+#### Custom Modules
+
+1. Hero Module
+
+   - Full-width backgrounds
+   - Content overlays
+   - Button styling
+   - Animation options
+
+2. **Testimonial Module**
+   - Grid layouts
+   - Client photos
+   - Rating systems
+   - Color schemes
+
+#### Theme Settings
+
+- **Color Presets:** Theme colors available
+- **Spacing Presets:** Consistent spacing
+- **Font Integration:** Theme fonts
+- **Responsive Settings:** Mobile optimization
+
+### Divi Integration
+
+#### Custom Modules
+
+1. Attributes Hero
+
+   - Background options
+   - Text overlays
+   - Button customization
+   - Mobile optimization
+
+2. **Attributes Testimonial**
+   - Layout variations
+   - Style options
+   - Animation effects
+   - Content management
+
+#### Theme Builder Support
+
+- **Header Templates:** Custom headers
+- **Footer Templates:** Custom footers
+- **Archive Templates:** Blog layouts
+- **Single Templates:** Post layouts
+
+### Universal Compatibility
+
+The theme automatically detects and optimizes for:
+
+- **Visual Composer** (WPBakery)
+- **Gutenberg** (Block Editor)
+- **Brizy** Builder
+- \*\*Tive Architect
+
+---
+
+## 🌍 Multilingual Support
+
+### Supported Plugins
+
+#### WPML (WordPress Multilingual)
+
+- ✅ **String Translation:** Theme strings registered
+- ✅ **Menu Translation:** Automatic handling
+- ✅ **Widget Translation:** Full support
+- ✅ **Theme Localization:** All text translatable
+
+\*\*Setup structions:
+
+1. Install WPML
+2. Configure languages
+3. Theme strings auto-register
+4. Translate menus and content
+5. Use language switcher widget
+
+#### Polylang
+
+- ✅ **Language Management:** Easy setup
+- ✅ **Content Translation:** Post/page translation
+- ✅ **Menu Handling:** Language-specific menus
+- ✅ **Widget Areas:** Separate widgets per language
+
+\*\*Setup structions:
+
+1. Install Polylang
+2. Add languages in settings
+3. Create language-specific menus
+4. Translate content
+5. Configure widgets per language
+
+#### qTranslate-XT
+
+- ✅ **Quick Translation:** Inline editing
+- ✅ **Content Management:** Easy switching
+- ✅ **URL Structure:** SEO-friendly URLs
+- ✅ **Admin Interface:** Multilingual dashboard
+
+#### Weglot
+
+- ✅ **Automatic Translation:** AI-powered
+- ✅ **Professional Translation:** Human review
+- ✅ **Visual Editor:** In-context editing
+- ✅ **SEO Optimization:** Multilingual SEO
+
+### Language Switcher
+
+#### Display Options
+
+```php
+// Dropdown format
+echo attributes_canva_language_switcher('dropdown');
+
+// List format
+echo attributes_canva_language_switcher('list');
+
+// Flag format
+echo attributes_canva_language_switcher('flags');
+```
+
+#### Styling Options
+
+- **Dropdown Style:** Select box styling
+- **List Style:** Horizontal/vertical lists
+- **Flag Style:** Country flags with names
+- **Button Style:** Custom button designs
+
+### RTL Language Support
+
+#### Automatic Detection
+
+The theme automatically detects RTL languages:
+
+- Arabic (ar)
+- Hebrew (he)
+- Persian/Farsi (fa)
+- Urdu (ur)
+- Yiddish (yi)
+
+#### RTL Styles
+
+- **Text Direction:** Right-to-left
+- **Layout Mirroring:** Automatic flipping
+- **Navigation:** RTL-optimized menus
+- **Typography:** RTL font support
+
+### Translation Functions
+
+#### For Developers
+
+```php
+// Translate a string
+$translated = attributes_canva_translate('Hello World', 'Context');
+
+// Check if site is multilingual
+if (attributes_canva_is_multilingual()) {
+    // Multilingual-specific code
+}
+
+// Get current language
+$current_lang = attributes_canva_get_current_language();
+```
+
+---
+
+## ⚡ Performance
+
+### Speed Optimization
+
+#### Asset Optimization
+
+- **Critical CSS:** Above-the-fold styles loaded first
+- **CSS Minification:** Reduced file sizes
+- **JavaScript Optimization:** Deferred non-critical scripts
+- **Image Optimization:** WebP support, lazy loading
+
+#### Caching Strategy
+
+- **Browser Caching:** Long-term asset caching
+- **Object Caching:** Database query optimization
+- **Page Caching:** Full page caching support
+- **CDN Ready:** Content delivery network compatible
+
+#### Loading Performance
+
+```
+Lighthouse Scores (Target):
+Performance: 95+
+Accessibility: 95+
+Best Practices: 95+
+SEO: 95+
+```
+
+### Core Web Vitals
+
+#### Largest Contentful Paint (LCP)
+
+- **Target:** < 2.5 seconds
+- **Optimizations:**
+  - Critical CSS inline
+  - Hero image preloading
+  - Font optimization
+  - Server response optimization
+
+#### First Input Delay (FID)
+
+- **Target:** < 100 milliseconds
+- **Optimizations:**
+  - JavaScript optimization
+  - Event handler optimization
+  - Third-party script management
+  - Progressive enhancement
+
+#### Cumulative Layout Shift (CLS)
+
+- **Target:** < 0.1
+- **Optimizations:**
+  - Image dimensions specified
+  - Font loading optimization
+  - Dynamic content handling
+  - Layout stability
+
+### SEO Optimization
+
+#### Technical SEO
+
+- **Schema Markup:** Rich snippets support
+- **Meta Tags:** Comprehensive meta data
+- **Open Graph:** Social media optimization
+- **XML Sitemaps:** Search engine indexing
+- **Breadcrumbs:** Navigation structure
+
+#### Content SEO
+
+- **Semantic HTML:** Proper heading structure
+- **Image Optimization:** Alt text, captions
+- **Internal Linking:** Related content
+- **Page Speed:** Core ranking factor
+- **Mobile Optimization:** Mobile-first indexing
+
+### Security Features
+
+#### Input Validation
+
+- **XSS Protection:** Cross-site scripting prevention
+- **SQL Injection:** Database security
+- **CSRF Protection:** Cross-site request forgery
+- **File Upload:** Secure file handling
+
+#### Access Control
+
+- **User Capabilities:** Proper permission checks
+- **Nonce Verification:** Request validation
+- **Rate Limiting:** Brute force protection
+- **Security Headers:** Browser security
+
+---
+
+## 👨‍💻 Developer Guide
+
+### Theme Structure
+
+```
+attribute-canva/
+├── assets/                    # Static assets
+│   ├── css/                  # Stylesheets
+│   │   ├── style.css         # Main styles
+│   │   ├── dark-mode.css     # Dark mode styles
+│   │   ├── customizer-controls.css
+│   │   └── woocommerce.css   # WooCommerce styles
+│   ├── js/                   # JavaScript files
+│   │   ├── script.js         # Basic functionality
+│   │   ├── enhanced.js       # Advanced features
+│   │   ├── dark-mode.js      # Dark mode toggle
+│   │   ├── ajax.js           # AJAX functionality
+│   │   ├── customizer-preview.js
+│   │   └── customizer-controls.js
+│   └── images/               # Theme images
+├── inc/                      # PHP includes
+│   ├── theme-setup.php       # Theme setup
+│   ├── enqueue-scripts.php   # Asset loading
+│   ├── customizer.php        # Customizer options
+│   ├── ajax-handlers.php     # AJAX handlers
+│   ├── widgets.php           # Widget areas
+│   ├── starter-content.php   # Demo content
+│   ├── page-builders.php     # Page builder integration
+│   ├── acf-integration.php   # ACF integration
+│   ├── multilingual.php      # Language support
+│   ├── performance.php       # Performance features
+│   ├── security.php          # Security features
+│   └── elementor/            # Elementor widgets
+├── template-parts/           # Template components
+│   ├── header/              # Header components
+│   ├── footer/              # Footer components
+│   ├── content/             # Content components
+│   ├── blocks/              # ACF blocks
+│   └── page/                # Page components
+├── page-templates/           # Custom page templates
+├── languages/               # Translation files
+├── acf-json/               # ACF field groups
+├── docs/                   # Documentation
+├── functions.php           # Main functions file
+├── style.css              # Theme stylesheet
+├── index.php              # Main template
+├── header.php             # Header template
+├── footer.php             # Footer template
+├── sidebar.php            # Sidebar template
+├── single.php             # Single post template
+├── page.php               # Page template
+├── archive.php            # Archive template
+├── search.php             # Search results template
+├── 404.php                # 404 error template
+├── comments.php           # Comments template
+├── searchform.php         # Search form template
+├── rtl.css               # RTL styles
+├── screenshot.png        # Theme screenshot
+└── README.md             # Project documentation
+```
+
+### Hooks & Filters
+
+#### Action Hooks
+
+```php
+// Before header
+do_action('attribute_canva_before_header');
+
+// After header
+do_action('attribute_canva_after_header');
+
+// Before content
+do_action('attribute_canva_before_content');
+
+// After content
+do_action('attribute_canva_after_content');
+
+// Before footer
+do_action('attribute_canva_before_footer');
+
+// After footer
+do_action('attribute_canva_after_footer');
+```
+
+#### Filter Hooks
+
+```php
+// Customize social links
+add_filter('attributes_canva_social_links', 'custom_social_links');
+
+// Modify reading time
+add_filter('attributes_canva_reading_time', 'custom_reading_time', 10, 2);
+
+// Customize page layout
+add_filter('attributes_canva_page_layout', 'custom_page_layout', 10, 2);
+
+// Modify breadcrumbs
+add_filter('attributes_canva_breadcrumbs', 'custom_breadcrumbs');
+```
+
+### Helper Functions
+
+#### ACF Functions
+
+```php
+// Get ACF field with fallback
+$value = attributes_canva_get_field('field_name', $post_id, 'default');
+
+// Get ACF option with fallback
+$option = attributes_canva_get_option('option_name', 'default');
+
+// Display social media links
+echo attributes_canva_social_links();
+
+// Show reading time
+attributes_canva_display_reading_time();
+```
+
+#### Multilingual Functions
+
+```php
+// Translate string
+$translated = attributes_canva_translate('String', 'Context');
+
+// Language switcher
+echo attributes_canva_language_switcher('dropdown');
+
+// Check if multilingual
+if (attributes_canva_is_multilingual()) {
+    // Multilingual code
+}
+
+// Get current language
+$lang = attributes_canva_get_current_language();
+```
+
+#### Utility Functions
+
+```php
+// Social sharing buttons
+echo attributes_canva_social_sharing();
+
+// Breadcrumb navigation
+attributes_canva_breadcrumbs();
+
+// Reading time calculation
+$time = attributes_canva_reading_time($post_id);
+
+// Page layout detection
+$layout = attributes_canva_get_page_layout($post_id);
+```
+
+### Custom Post Types
+
+#### Example Implementation
+
+```php
+function register_custom_post_type() {
+    register_post_type('portfolio', [
+        'labels' => [
+            'name' => 'Portfolio',
+            'singular_name' => 'Portfolio Item',
+        ],
+        'public' => true,
+        'has_archive' => true,
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest' => true,
+    ]);
+}
+add_action('init', 'register_custom_post_type');
+```
+
+### Child Theme Development
+
+#### Creating a Child Theme
+
+```php
+// style.css
+/*
+Theme Name: Attributes Canva Child
+Template: attribute-canva
+Description: Child theme of Attributes Canva
+Version: 1.0.0
+*/
+
+@import url("../attribute-canva/style.css");
+
+/* Custom styles here */
+```
+
+#### functions.php
+
+```php
+<?php
+function child_theme_enqueue_styles() {
+    wp_enqueue_style('parent-style',
+        get_template_directory_uri() . '/style.css'
+    );
+    wp_enqueue_style('child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        ['parent-style']
+    );
+}
+add_action('wp_enqueue_scripts', 'child_theme_enqueue_styles');
+```
+
+### Custom Widgets
+
+#### Example Widget
+
+```php
+class Custom_Widget extends WP_Widget {
+    public function __construct() {
+        parent::__construct(
+            'custom_widget',
+            'Custom Widget',
+            ['description' => 'A custom widget example']
+        );
+    }
+
+    public function widget($args, $instance) {
+        echo $args['before_widget'];
+        echo $args['before_title'] . $instance['title'] . $args['after_title'];
+        echo '<p>' . $instance['content'] . '</p>';
+        echo $args['after_widget'];
+    }
+
+    public function form($instance) {
+        // Widget form fields
+    }
+
+    public function update($new_instance, $old_instance) {
+        // Save widget settings
+    }
+}
+
+function register_custom_widget() {
+    register_widget('Custom_Widget');
+}
+add_action('widgets_init', 'register_custom_widget');
+```
+
+---
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+#### Theme Not Activating
+
+**Symptoms:** Error message during activation
+\*\*Solutions:1. Check PHP version (7.4+ required) 2. Increase memory limit in wp-config.php:
+
+```php
+ini_set('memory_limit', '256M');
+```
+
+3. Check file permissions (755 for directories, 644 for files)
+4. Deactivate conflicting plugins
+
+#### Customizer Not Loading
+
+**Symptoms:** Blank customizer screen
+\*\*Solutions:1. Check for JavaScript errors in browser console 2. Deactivate all plugins temporarily 3. Switch to default theme, then back 4. Clear browser cache 5. Check for theme conflicts
+
+#### Page Builder Issues
+
+**Symptoms:** Builder not loading or styling issues
+\*\*Solutions:1. Update page builder plugin 2. Regenerate CSS in builder settings 3. Check for plugin conflicts 4. Clear all caches 5. Re-save permalink structure
+
+#### Performance Issues
+
+**Symptoms:** Slow loading times
+\*\*Solutions:1. Install caching plugin (WP Rocket, W3 Total Cache) 2. Optimize images (Smush, ShortPixel) 3. Enable GZIP compression 4. Use CDN (Cloudflare, MaxCDN) 5. Minimize plugins
+
+#### Multilingual Problems
+
+**Symptoms:** Language switcher not working
+\*\*Solutions:1. Verify multilingual plugin is active 2. Check language configuration 3. Clear multilingual plugin cache 4. Re-save menu assignments 5. Check for theme conflicts
+
+### Debug Mode
+
+#### Enable WordPress Debug
+
+Add to wp-config.php:
+
+```php
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
+define('ATTRIBUTES_CANVA_DEBUG', true);
+```
+
+#### Theme Debug Panel
+
+When debug mode is enabled, the theme shows a debug panel with:
+
+- PHP version and memory usage
+- Database query count
+- Page load time
+- Active plugins list
+- Theme feature status
+
+### Support Resources
+
+#### Documentation
+
+- **Theme Documentation:** This guide
+- **WordPress Codex:** Official documentation
+- **Page Builder Docs:** Plugin-specific guides
+- **ACF Documentation:** Advanced Custom Fields guide
+
+#### Community Support
+
+- **WordPress Forums:** General WordPress help
+- **Theme Support Forum:** Theme-specific issues
+- **Page Builder Communities:** Builder-specific help
+- **Stack Overflow:** Development questions
+
+#### Professional Support
+
+- **Priority Support:** Available with premium licenses
+- **Custom Development:** Available for hire
+- **Site Setup Service:** Professional installation
+- **Maintenance Plans:** Ongoing site management
+
+---
+
+## 📞 Support
+
+### Getting Help
+
+#### Self-Help Resources
+
+1. **Read this documentation** thoroughly
+2. **Check the FAQ** section below
+3. **Search the support forum** for similar issues
+4. **Enable debug mode** to identify issues
+5. **Test with default theme** to isolate problems
+
+#### Before Contacting Support
+
+Please provide:
+
+- **WordPress version**
+- **PHP version**
+- **Theme version**
+- **Active plugins list**
+- **Error messages** or screenshots
+- **Steps to reproduce** the issue
+- **Browser and device** information
+
+#### Contact Methods
+
+- **Support Forum:** Community help and basic support
+- **Email Support:** Direct email for priority support
+- **Live Chat:** Real-time assistance during business hours
+- **Priority Support:** Guaranteed response time for premium users
+
+### Frequently Asked Questions
+
+#### General Questions
+
+**Q: Is this theme free?**
+A: The theme follows the GPL license. Basic version may be free, with premium features available.
+
+**Q: Can I use this theme for commercial websites?**
+A: Yes, the GPL license allows commercial use.
+
+**Q: Do you provide customization services?**
+A: Yes, custom development services are available separately.
+
+**Q: Is the theme translation-ready?**
+A: Yes, all strings are translatable and multilingual plugins are supported.
+
+**Q: Can I modify the theme code?**
+A: Yes, but we recommend using a child theme for modifications.
+
+#### Technical Questions
+
+**Q: Which page builders are supported?**
+A: Elementor, Beaver Builder, Divi, Visual Composer, and Gutenberg.
+
+**Q: Is WooCommerce supported?**
+A: Yes, full WooCommerce integration is included.
+
+**Q: Can I disable specific features?**
+A: Yes, most features can be disabled via the customizer.
+
+**Q: Does the theme support custom post types?**
+A: Yes, the theme works with any custom post type.
+
+**Q: Is the theme GDPR compliant?**
+A: The theme itself is GDPR compliant, but you must ensure your content and plugins comply.
+
+#### Customization Questions
+
+**Q: How do I change colors?**
+A: Use Appearance → Customize → Theme Colors
+
+**Q: Can I upload my own fonts?**
+A: Yes, via plugins or custom CSS. Google Fonts are built-in.
+
+**Q: How do I add custom CSS?**
+A: Use Appearance → Customize → Additional CSS or ACF options if available.
+
+**Q: Can I modify the header layout?**
+A: Yes, multiple header layouts are available in the customizer.
+
+**Q: How do I add social media links?**
+A: Use the ACF options page or customizer social media section.
+
+### Version History
+
+#### Version 1.1.0 (Current)
+
+- ✅ Added page builder integration
+- ✅ Enhanced multilingual support
+- ✅ Added ACF integration
+- ✅ Improved performance
+- ✅ Added dark mode
+- ✅ Enhanced security
+- ✅ Added WooCommerce support
+
+#### Version 1.0.0
+
+- 🎉 Initial release
+- ✅ Basic theme functionality
+- ✅ Responsive design
+- ✅ Customizer integration
+- ✅ Widget areas
+- ✅ Menu support
+
+### Roadmap
+
+#### Upcoming Features
+
+- 🔄 Version 1.2.0
+
+  - Advanced animation controls
+  - More page builder widgets
+  - Enhanced WooCommerce styling
+  - Performance improvements
+
+- 🔄 **Version 1.3.0**
+  - Theme builder functionality
+  - Advanced typography controls
+  - More customizer options
+  - Additional integrations
+
+#### Long-term Goals
+
+- Block editor (Gutenberg) blocks
+- Advanced SEO features
+- E-commerce enhancements
+- Accessibility improvements
+- Performance optimizations
+
+---
+
+## 📋 Checklist
+
+### Post-Installation Checklist
+
+#### Basic Setup
+
+- [ ] Theme activated successfully
+- [ ] Logo uploaded and configured
+- [ ] Site title and tagline set
+- [ ] Primary menu created and assigned
+- [ ] Essential pages created (Home, About, Contact, Privacy)
+- [ ] Widgets configured in sidebar and footer
+- [ ] Color scheme customized
+- [ ] Typography settings configured
+
+#### Content Setup
+
+- [ ] Homepage content added
+- [ ] About page content written
+- [ ] Contact information added
+- [ ] Blog posts created (if applicable)
+- [ ] Images optimized and uploaded
+- [ ] SEO meta descriptions added
+- [ ] Social media links configured
+
+#### Advanced Configuration
+
+- [ ] Page builder installed and configured (if using)
+- [ ] Multilingual plugin setup (if needed)
+- [ ] ACF fields configured (if using)
+- [ ] WooCommerce setup (if e-commerce)
+- [ ] Security plugins installed
+- [ ] Caching plugin configured
+- [ ] Analytics tracking added
+- [ ] GDPR compliance verified
+
+#### Testing Checklist
+
+- [ ] Mobile responsiveness tested
+- [ ] Page loading speed verified
+- [ ] Contact form functionality tested
+- [ ] Search functionality working
+- [ ] Menu navigation tested
+- [ ] Browser compatibility verified
+- [ ] Accessibility features tested
+- [ ] SEO elements verified
+
+#### Launch Preparation
+
+- [ ] Backup created
+- [ ] SSL certificate installed
+- [ ] 404 page customized
+- [ ] Redirects setup (if migrating)
+- [ ] Sitemap submitted to search engines
+- [ ] Social media profiles linked
+- [ ] Email notifications configured
+- [ ] Maintenance plan established
+
+---
+
+## 🎉 Conclusion
+
+**Attributes Canva** is designed to be the perfect foundation for your WordPress website. With its modern design, extensive customization options, and developer-friendly architecture, it provides everything you need to create a professional, fast, and user-friendly website.
+
+### Key Takeaways
+
+- 🚀 **Easy to Setup:** Get started in minutes with the quick start guide
+- 🎨 **Highly Customizable:** Extensive options for personalization
+- ⚡ **Performance Focused:** Optimized for speed and SEO
+- 🌍 **Globally Ready:** Full multilingual and accessibility support
+- 🔧 **Developer Friendly:** Clean code with hooks and filters
+- 🛡️ **Secure by Design:** Multiple security layers built-in
+
+### Next Steps
+
+1. **Follow the Quick Start Guide** to set up your site
+2. **Explore the Customizer** to personalize your theme
+3. **Install Recommended Plugins** for enhanced functionality
+4. **Check out ACF Integration** for advanced content management
+5. **Configure Multilingual Support** if needed for global reach
+6. **Optimize Performance** using the built-in tools and settings
+
+### Final Words
+
+Whether you're building a personal blog, business website, portfolio, or complex multilingual site, Attributes Canva provides the solid foundation and flexibility you need. The theme grows with your requirements - from simple websites to complex applications with page builders, custom fields, and international audiences.
+
+The enhanced edition represents months of development focused on real-world needs: better performance, stronger security, broader compatibility, and deeper customization options. Every feature has been carefully crafted to work seamlessly together while maintaining the clean, minimalist aesthetic that makes your content shine.
+
+### Community & Support
+
+Remember that great websites are built by great communities. Share your creations, ask questions, and help others succeed. The WordPress ecosystem thrives when we all contribute and learn together.
+
+### Ready to Build Something Amazing?
+
+Your journey to a better website starts now. With Attributes Canva as your foundation, you have everything needed to create something truly exceptional. The only limit is your imagination.
+
+### Happy building! 🚀✨
+
+---
+
+_Thank you for choosing Attributes Canva. We can't wait to see what you create._
+        </script>
+
+        <script>
+            const rawMarkdown = document.getElementById('markdown').textContent;
+            const tokens = marked.lexer(rawMarkdown);
+
+            const menu = document.getElementById('menu');
+            const tabs = document.getElementById('tabs');
+
+            let sections = [];
+            let current = null;
+
+            tokens.forEach(token => {
+                if (token.type === 'heading' && token.depth === 2) {
+                    if (current) sections.push(current);
+                    current = { title: token.text, content: '' };
+                } else if (current) {
+                    current.content += marked.parser([token]);
+                }
+            });
+
+            if (current) sections.push(current);
+
+            sections.forEach((section, index) => {
+                // Sidebar Button
+                const button = document.createElement('button');
+                button.textContent = section.title;
+                button.classList.toggle('active', index === 0);
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
+                    document.getElementById('tab' + index).classList.add('active');
+                    button.classList.add('active');
+                });
+                menu.appendChild(button);
+
+                // Tab Content
+                const div = document.createElement('div');
+                div.id = 'tab' + index;
+                div.className = 'tab' + (index === 0 ? ' active' : '');
+                div.innerHTML = `<h2>${section.title}</h2>` + section.content;
+                tabs.appendChild(div);
+            });
+        </script>
+    </body>
+
 </html>

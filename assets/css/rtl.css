@@ -1,0 +1,37 @@
+/* RTL Language Support */
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .site-branding {
+    text-align: right;
+}
+
+.rtl .main-navigation ul {
+    direction: rtl;
+}
+
+.rtl .header-container {
+    flex-direction: row-reverse;
+}
+
+.rtl .entry-meta span {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+.rtl .nav-previous {
+    float: right;
+}
+
+.rtl .nav-next {
+    float: left;
+}
+
+.rtl blockquote {
+    border-left: none;
+    border-right: 4px solid var(--primary-color);
+    padding-left: 0;
+    padding-right: 1.5rem;
+}
