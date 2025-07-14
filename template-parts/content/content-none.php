@@ -1,9 +1,16 @@
 <?php
+
 /**
  * Template part for displaying a message when no search results are found.
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 ?>
 
 <section class="no-results not-found">

@@ -1,9 +1,16 @@
 <?php
+
 /**
  * Template part for displaying the page sidebar.
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 ?>
 
 <aside id="secondary" class="widget-area page-sidebar" role="complementary">

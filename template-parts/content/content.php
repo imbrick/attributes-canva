@@ -1,9 +1,16 @@
 <?php
+
 /**
  * Template part for displaying posts.
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

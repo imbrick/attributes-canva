@@ -1,9 +1,17 @@
 <?php
+
 /**
  * Template part for displaying post meta.
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 ?>
 
 <div class="entry-meta">
@@ -14,7 +22,8 @@
         <?php printf(__('by %s', 'attribute-canva'), get_the_author_posts_link()); ?>
     </span>
     <span class="category">
-        <?php _e('Categories: ', 'attribute-canva'); the_category(', '); ?>
+        <?php _e('Categories: ', 'attribute-canva');
+        the_category(', '); ?>
     </span>
     <span class="tags">
         <?php the_tags(__('Tags: ', 'attribute-canva'), ', '); ?>

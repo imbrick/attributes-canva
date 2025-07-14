@@ -3,7 +3,7 @@
 /**
  * The main template file.
  *
- * This is a fallback template file in WordPress.
+ * This is a fallback template file in WorPress.
  * It is used to display content when no more specific template is found.
  *
  * @package Attribute_Canva
@@ -11,7 +11,14 @@
  * @license GPL-2.0+
  * @link    https://example.com
  * @since   1.0.0
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 get_header(); ?>
 
 <main id="primary" class="site-main">

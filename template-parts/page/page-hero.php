@@ -1,9 +1,16 @@
 <?php
+
 /**
  * Template part for displaying the page hero.
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 ?>
 
 <div class="page-hero">

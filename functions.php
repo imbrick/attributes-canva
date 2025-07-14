@@ -1,18 +1,53 @@
 <?php
 
 /**
- * Attributes Canva Theme Functions
- * Enhanced with Page Builder, ACF, and Multilingual Support
+ * Enhanced error handling and constants
  */
-
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+    exit;
 }
 
-// Define theme constants
-define('ATTRIBUTE_CANVA_VERSION', '1.1.0');
-define('ATTRIBUTE_CANVA_THEME_DIR', get_template_directory());
-define('ATTRIBUTE_CANVA_THEME_URI', get_template_directory_uri());
+// Define theme constants with error checking
+if (!defined('ATTRIBUTE_CANVA_VERSION')) {
+    define('ATTRIBUTE_CANVA_VERSION', '1.1.0');
+}
+
+if (!defined('ATTRIBUTE_CANVA_THEME_DIR')) {
+    define('ATTRIBUTE_CANVA_THEME_DIR', get_template_directory());
+}
+
+if (!defined('ATTRIBUTE_CANVA_THEME_URI')) {
+    define('ATTRIBUTE_CANVA_THEME_URI', get_template_directory_uri());
+}
+
+// Enhanced file inclusion with error checking
+function attributes_canva_require_file($file_path)
+{
+    $full_path = ATTRIBUTE_CANVA_THEME_DIR . $file_path;
+
+    if (file_exists($full_path)) {
+        require_once $full_path;
+    } else {
+        error_log("Attributes Canva: Missing file - " . $full_path);
+    }
+}
+
+// Load core files with error handling
+$core_files = [
+    '/inc/theme-setup.php',
+    '/inc/enqueue-scripts.php',
+    '/inc/ajax-handlers.php',
+    '/inc/customizer.php',
+    '/inc/widgets.php',
+    '/inc/starter-content.php',
+    '/inc/page-builders.php',
+    '/inc/acf-integration.php',
+    '/inc/multilingual.php'
+];
+
+foreach ($core_files as $file) {
+    attributes_canva_require_file($file);
+}
 
 // Include core files from the inc/ folder
 $inc_dir = get_template_directory() . '/inc/';
@@ -28,6 +63,8 @@ require_once($inc_dir . 'starter-content.php');
 require_once($inc_dir . 'page-builders.php');      // Page Builder Integration
 require_once($inc_dir . 'acf-integration.php');    // ACF Integration
 require_once($inc_dir . 'multilingual.php');       // Multilingual Support
+require_once($inc_dir . 'performance.php');
+require_once($inc_dir . 'security.php');
 
 // Include Elementor compatibility if Elementor is active
 if (did_action('elementor/loaded')) {
@@ -189,6 +226,31 @@ function attributes_canva_enhanced_enqueue_scripts()
     ]);
 }
 add_action('wp_enqueue_scripts', 'attributes_canva_enhanced_enqueue_scripts', 15);
+
+// Add to functions.php
+function attributes_canva_error_handler($errno, $errstr, $errfile, $errline)
+{
+    if (!(error_reporting() & $errno)) {
+        return false;
+    }
+
+    $log_message = sprintf(
+        "Attributes Canva Error: %s in %s on line %d",
+        $errstr,
+        $errfile,
+        $errline
+    );
+
+    error_log($log_message);
+
+    if (WP_DEBUG && current_user_can('manage_options')) {
+        echo '<div class="notice notice-error"><p>' . esc_html($log_message) . '</p></div>';
+    }
+}
+
+if (defined('ATTRIBUTES_CANVA_DEBUG') && ATTRIBUTES_CANVA_DEBUG) {
+    set_error_handler('attributes_canva_error_handler');
+}
 
 /**************************\
  * ENHANCED UTILITY FUNCTIONS

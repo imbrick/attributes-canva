@@ -3,7 +3,13 @@
 /**
  * ACF Block Templates
  * Create the following files in your theme directory
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 // ===== template-parts/blocks/hero-section.php =====
 ?>

@@ -5,7 +5,13 @@
  * Enhanced for modern UX/UI standards
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 ?>
 
 <div class="header-container">

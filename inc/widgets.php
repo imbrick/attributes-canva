@@ -2,7 +2,13 @@
 
 /**
  * Widgets and Sidebars
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 if (!function_exists('attributes_canva_widgets_init')) {
     /**

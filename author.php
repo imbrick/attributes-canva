@@ -1,9 +1,16 @@
 <?php
+
 /**
  * The template for displaying author archive pages.
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 get_header(); ?>
 

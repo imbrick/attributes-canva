@@ -10,7 +10,14 @@
  * @license GPL-2.0+
  * @link    https://example.com
  * @since   1.0.0
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 
 // Prevent direct access to this file.
 if (! defined('ABSPATH')) {

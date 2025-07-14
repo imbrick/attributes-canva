@@ -43,15 +43,17 @@ attribute-canva/
 │       ├── ajax.js
 │       └── enhanced.js
 ├── inc/
-│   ├── theme-setup.php
-│   ├── enqueue-scripts.php
+│   ├── acf-integration.php
 │   ├── ajax-handlers.php
 │   ├── customizer.php
-│   ├── widgets.php
-│   ├── starter-content.php
-│   ├── page-builders.php
-│   ├── acf-integration.php
+│   ├── enqueue-scripts.php
 │   ├── multilingual.php
+│   ├── page-builders.php
+│   ├── performance.php
+│   ├── security.php
+│   ├── starter-content.php
+│   ├── theme-setup.php
+│   ├── widgets.php
 │   ├── elementor/
 │   │   └── widgets/
 │   ├── beaver-builder/

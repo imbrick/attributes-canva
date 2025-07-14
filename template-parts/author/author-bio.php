@@ -1,9 +1,16 @@
 <?php
+
 /**
  * Template part for displaying an author's bio.
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 ?>
 
 <div class="author-bio-section">

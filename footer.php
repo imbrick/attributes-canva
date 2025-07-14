@@ -5,7 +5,14 @@
  * Enhanced for clean, professional design
  *
  * @package Attribute Canva
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 ?>
 </main><!-- #main-content -->
 

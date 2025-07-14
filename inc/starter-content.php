@@ -1,13 +1,21 @@
 <?php
+
 /**
  * Starter Content, Demo Import, Theme Docs, Typography Settings, Contact Widget, and Admin Notices
+ *
+ * Security check - prevent direct access
  */
+
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 if (!function_exists('attributes_canva_starter_content')) {
     /**
      * Define and register starter content for the theme
      */
-    function attributes_canva_starter_content() {
+    function attributes_canva_starter_content()
+    {
         $starter_content = array(
             // Define some example posts
             'posts' => array(
@@ -75,7 +83,8 @@ if (!function_exists('attributes_canva_theme_docs')) {
     /**
      * Add Theme Docs menu to WordPress Admin
      */
-    function attributes_canva_theme_docs() {
+    function attributes_canva_theme_docs()
+    {
         add_menu_page(
             __('Theme Docs', 'attr-canva'),
             __('Theme Docs', 'attr-canva'),
@@ -100,7 +109,8 @@ if (!function_exists('attributes_canva_demo_import')) {
     /**
      * Setup demo import configuration
      */
-    function attributes_canva_demo_import() {
+    function attributes_canva_demo_import()
+    {
         if (!class_exists('OCDI_Plugin')) {
             add_action('admin_notices', function () {
                 echo '<div class="notice notice-warning is-dismissible">';
@@ -129,7 +139,8 @@ if (!function_exists('attributes_canva_customize_register')) {
     /**
      * Add Typography Settings to the Customizer
      */
-    function attributes_canva_customize_register($wp_customize) {
+    function attributes_canva_customize_register($wp_customize)
+    {
         $wp_customize->add_section('attributes_canva_typography', array(
             'title'    => __('Typography', 'attr-canva'),
             'priority' => 40,
@@ -158,24 +169,28 @@ if (!class_exists('Attributes_Canva_Contact_Widget')) {
     /**
      * Contact Widget
      */
-    class Attributes_Canva_Contact_Widget extends WP_Widget {
-        function __construct() {
+    class Attributes_Canva_Contact_Widget extends WP_Widget
+    {
+        function __construct()
+        {
             parent::__construct('attributes_contact', __('Contact Info', 'attr-canva'), array(
                 'description' => __('Display contact information.', 'attr-canva'),
             ));
         }
 
-        function widget($args, $instance) {
+        function widget($args, $instance)
+        {
             echo $args['before_widget'];
             echo $args['before_title'] . esc_html($instance['title']) . $args['after_title'];
             echo '<p>' . esc_html($instance['contact_info']) . '</p>';
             echo $args['after_widget'];
         }
 
-        function form($instance) {
+        function form($instance)
+        {
             $title = isset($instance['title']) ? $instance['title'] : '';
             $contact_info = isset($instance['contact_info']) ? $instance['contact_info'] : '';
-            ?>
+?>
             <p>
                 <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'attr-canva'); ?></label>
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
@@ -184,11 +199,12 @@ if (!class_exists('Attributes_Canva_Contact_Widget')) {
                 <label for="<?php echo $this->get_field_id('contact_info'); ?>"><?php _e('Contact Info:', 'attr-canva'); ?></label>
                 <textarea class="widefat" id="<?php echo $this->get_field_id('contact_info'); ?>" name="<?php echo $this->get_field_name('contact_info'); ?>"><?php echo esc_textarea($contact_info); ?></textarea>
             </p>
-            <?php
+        <?php
         }
     }
 
-    function attributes_canva_register_widgets() {
+    function attributes_canva_register_widgets()
+    {
         register_widget('Attributes_Canva_Contact_Widget');
     }
     add_action('widgets_init', 'attributes_canva_register_widgets');
@@ -198,12 +214,13 @@ if (!function_exists('attributes_canva_welcome_notice')) {
     /**
      * Admin Welcome Notice
      */
-    function attributes_canva_welcome_notice() {
+    function attributes_canva_welcome_notice()
+    {
         ?>
         <div class="notice notice-success is-dismissible">
             <p><?php _e('Welcome to Attributes Canva! Start by visiting the <a href="admin.php?page=theme-docs">Theme Docs</a> or customizing your site in the <a href="customize.php">Customizer</a>.', 'attr-canva'); ?></p>
         </div>
-        <?php
+<?php
     }
     add_action('admin_notices', 'attributes_canva_welcome_notice');
 }

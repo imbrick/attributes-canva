@@ -5,7 +5,12 @@
  * Enhanced for clean canvas design
  *
  * @package Attribute Canva
+ * 
+ * Security check - prevent direct access
  */
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
 
 get_header(); ?>
 

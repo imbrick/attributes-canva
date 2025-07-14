@@ -3,24 +3,30 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-class Elementor_Custom_Widget extends \Elementor\Widget_Base {
-    public function get_name() {
+class Elementor_Custom_Widget extends \Elementor\Widget_Base
+{
+    public function get_name()
+    {
         return 'custom_widget';
     }
 
-    public function get_title() {
+    public function get_title()
+    {
         return __('Custom Widget', 'attribute-canva');
     }
 
-    public function get_icon() {
+    public function get_icon()
+    {
         return 'eicon-code';
     }
 
-    public function get_categories() {
+    public function get_categories()
+    {
         return ['general'];
     }
 
-    protected function _register_controls() {
+    protected function _register_controls()
+    {
         $this->start_controls_section(
             'content_section',
             [
@@ -41,14 +47,16 @@ class Elementor_Custom_Widget extends \Elementor\Widget_Base {
         $this->end_controls_section();
     }
 
-    protected function render() {
+    protected function render()
+    {
         $settings = $this->get_settings_for_display();
         echo '<h2>' . $settings['title'] . '</h2>';
     }
 }
 
 // Register the widget
-function attribute_canva_register_custom_widget($widgets_manager) {
+function attribute_canva_register_custom_widget($widgets_manager)
+{
     require_once(__DIR__ . '/elementor-widgets/custom-widget.php');
     $widgets_manager->register(new \Elementor_Custom_Widget());
 }

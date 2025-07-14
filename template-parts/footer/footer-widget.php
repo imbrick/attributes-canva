@@ -1,3 +1,12 @@
+<?php
+
+/**
+ * Security check - prevent direct access
+ */
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+?>
 <div class="footer-widgets">
     <?php for ($i = 1; $i <= 3; $i++): ?>
         <?php if (is_active_sidebar("footer-$i")): ?>
