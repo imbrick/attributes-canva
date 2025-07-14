@@ -1,4 +1,440 @@
+/* ============================== *\
+   DARK MODE - CLEAN CANVAS THEME
+   Enhanced dark mode with smooth transitions
+\* ============================== */
+
+/* Dark Mode Variables */
+:root {
+    --transition-speed: 0.3s;
+}
+
+/* Dark Mode Base Styles */
 body.dark-mode {
-    background-color: #121212;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* Typography in Dark Mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #f1f5f9;
+}
+
+body.dark-mode p {
+    color: #cbd5e0;
+}
+
+body.dark-mode a {
+    color: #60a5fa;
+}
+
+body.dark-mode a:hover,
+body.dark-mode a:focus {
+    color: #93c5fd;
+}
+
+/* Header Dark Mode */
+body.dark-mode .site-header {
+    background-color: rgba(15, 23, 42, 0.95);
+    border-bottom-color: #334155;
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .site-title a {
+    color: #f1f5f9;
+}
+
+body.dark-mode .site-title a:hover {
+    color: #60a5fa;
+}
+
+body.dark-mode .site-description {
+    color: #94a3b8;
+}
+
+body.dark-mode .main-navigation a {
+    color: #cbd5e0;
+}
+
+body.dark-mode .main-navigation a:hover,
+body.dark-mode .main-navigation a:focus {
+    color: #60a5fa;
+}
+
+body.dark-mode .main-navigation a::after {
+    background-color: #60a5fa;
+}
+
+/* Buttons in Dark Mode */
+body.dark-mode .btn-primary,
+body.dark-mode button:not(.btn-secondary):not(.btn-outline):not(.menu-toggle) {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-primary:hover,
+body.dark-mode button:not(.btn-secondary):not(.btn-outline):not(.menu-toggle):hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+body.dark-mode .btn-secondary {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background-color: #334155;
+    border-color: #64748b;
+    color: #f1f5f9;
+}
+
+body.dark-mode .btn-outline {
+    background-color: transparent;
+    color: #60a5fa;
+    border-color: #60a5fa;
+}
+
+body.dark-mode .btn-outline:hover {
+    background-color: #60a5fa;
+    color: #0f172a;
+}
+
+/* Menu Toggle Dark Mode */
+body.dark-mode .menu-toggle {
+    color: #cbd5e0;
+}
+
+body.dark-mode .menu-toggle:hover {
+    background-color: #1e293b;
+    color: #60a5fa;
+}
+
+/* Search Input Dark Mode */
+body.dark-mode .header-search input[type="search"],
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="url"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="search"],
+body.dark-mode input[type="tel"],
+body.dark-mode input[type="number"],
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #1e293b;
+    border-color: #475569;
+    color: #e2e8f0;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Content Areas Dark Mode */
+body.dark-mode .card {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .card:hover {
+    border-color: #475569;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .entry-meta {
+    color: #94a3b8;
+}
+
+body.dark-mode .entry-meta svg {
+    opacity: 0.7;
+}
+
+/* Post Grid Dark Mode */
+body.dark-mode .post-grid article {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .post-grid article:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: #475569;
+}
+
+/* Navigation Dark Mode */
+body.dark-mode .post-navigation a {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #cbd5e0;
+}
+
+body.dark-mode .post-navigation a:hover {
+    background-color: #334155;
+    border-color: #3b82f6;
+    color: #60a5fa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .pagination a,
+body.dark-mode .pagination span {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #cbd5e0;
+}
+
+body.dark-mode .pagination a:hover {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+body.dark-mode .pagination .current {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+/* Sidebar & Widgets Dark Mode */
+body.dark-mode .widget {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .widget:hover {
+    border-color: #475569;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .widget-title {
+    color: #f1f5f9;
+    border-bottom-color: #334155;
+}
+
+body.dark-mode .widget li {
+    border-bottom-color: #334155;
+}
+
+body.dark-mode .widget a {
+    color: #cbd5e0;
+}
+
+body.dark-mode .widget a:hover {
+    color: #60a5fa;
+}
+
+/* Footer Dark Mode */
+body.dark-mode .site-footer {
+    background-color: #0f172a;
+    border-top-color: #334155;
+}
+
+body.dark-mode .footer-widget-title {
+    color: #f1f5f9;
+}
+
+body.dark-mode .site-info {
+    border-top-color: #334155;
+    color: #94a3b8;
+}
+
+body.dark-mode .site-info a {
+    color: #60a5fa;
+}
+
+/* Archive Header Dark Mode */
+body.dark-mode .archive-header {
+    border-bottom-color: #334155;
+}
+
+body.dark-mode .archive-title {
+    color: #f1f5f9;
+}
+
+body.dark-mode .archive-description {
+    color: #cbd5e0;
+}
+
+body.dark-mode .archive-meta {
+    color: #94a3b8;
+}
+
+/* No Results Dark Mode */
+body.dark-mode .no-results {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+/* Author Bio Dark Mode */
+body.dark-mode .author-bio {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .author-name {
+    color: #f1f5f9;
+}
+
+body.dark-mode .author-description {
+    color: #cbd5e0;
+}
+
+/* Comments Dark Mode */
+body.dark-mode .comments-wrapper {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+/* Mobile Menu Dark Mode */
+@media (max-width: 768px) {
+    body.dark-mode .main-navigation {
+        background-color: rgba(15, 23, 42, 0.98);
+        border-top-color: #334155;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    body.dark-mode .main-navigation li {
+        border-bottom-color: #334155;
+    }
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #3b82f6;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.dark-mode-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.dark-mode-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #fbbf24;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+}
+
+/* Dark Mode Animation */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth transitions for all elements */
+body.dark-mode * {
+    transition: background-color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease,
+        color var(--transition-speed) ease,
+        box-shadow var(--transition-speed) ease;
+}
+
+/* Preserve specific transitions that shouldn't be overridden */
+body.dark-mode .btn,
+body.dark-mode button,
+body.dark-mode a,
+body.dark-mode input,
+body.dark-mode textarea {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Images and media in dark mode */
+body.dark-mode img {
+    opacity: 0.9;
+    transition: opacity var(--transition-speed) ease;
+}
+
+body.dark-mode img:hover {
+    opacity: 1;
+}
+
+/* Code blocks in dark mode */
+body.dark-mode pre,
+body.dark-mode code {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+}
+
+/* Tables in dark mode */
+body.dark-mode table {
+    border-color: #334155;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark-mode th {
+    background-color: #1e293b;
+    color: #f1f5f9;
+}
+
+/* Blockquotes in dark mode */
+body.dark-mode blockquote {
+    border-left-color: #3b82f6;
+    background-color: #1e293b;
+    color: #cbd5e0;
+}
+
+/* Selection color in dark mode */
+body.dark-mode ::selection {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+body.dark-mode ::-moz-selection {
+    background-color: #3b82f6;
     color: #ffffff;
 }
