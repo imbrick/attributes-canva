@@ -55,3 +55,4 @@ if (!function_exists('attributes_canva_ajax_handler')) {
     add_action('wp_ajax_attributes_canva_action', 'attributes_canva_ajax_handler');
     add_action('wp_ajax_nopriv_attributes_canva_action', 'attributes_canva_ajax_handler');
 }
+}
