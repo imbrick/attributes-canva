@@ -118,11 +118,11 @@ main {
 /* ============================== *\
    4. Modern Button System
 \* ============================== */
-.btn,
-button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"] {
+.page-template-default .btn,
+.page-template-default button,
+.page-template-default input[type="submit"],
+.page-template-default input[type="button"],
+.page-template-default input[type="reset"] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -146,16 +146,16 @@ input[type="reset"] {
 }
 
 /* Primary Button */
-.btn-primary,
-button:not(.btn-secondary):not(.btn-outline):not(.menu-toggle) {
+.page-template-default .btn-primary,
+.page-template-default button:not(.btn-secondary):not(.btn-outline):not(.menu-toggle) {
     background-color: #3182ce;
     color: #ffffff;
     border-color: #3182ce;
     box-shadow: 0 2px 4px rgba(49, 130, 206, 0.15);
 }
 
-.btn-primary:hover,
-button:not(.btn-secondary):not(.btn-outline):not(.menu-toggle):hover {
+.page-template-default .btn-primary:hover,
+.page-template-default button:not(.btn-secondary):not(.btn-outline):not(.menu-toggle):hover {
     background-color: #2c5aa0;
     border-color: #2c5aa0;
     transform: translateY(-1px);
@@ -164,20 +164,20 @@ button:not(.btn-secondary):not(.btn-outline):not(.menu-toggle):hover {
     text-decoration: none;
 }
 
-.btn-primary:focus,
-button:focus {
+.page-template-default .btn-primary:focus,
+.page-template-default button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.3);
 }
 
 /* Secondary Button */
-.btn-secondary {
+.page-template-default .btn-secondary {
     background-color: #f7fafc;
     color: #4a5568;
     border-color: #e2e8f0;
 }
 
-.btn-secondary:hover {
+.page-template-default .btn-secondary:hover {
     background-color: #edf2f7;
     border-color: #cbd5e0;
     color: #2d3748;
@@ -185,34 +185,34 @@ button:focus {
 }
 
 /* Outline Button */
-.btn-outline {
+.page-template-default .btn-outline {
     background-color: transparent;
     color: #3182ce;
     border-color: #3182ce;
 }
 
-.btn-outline:hover {
+.page-template-default .btn-outline:hover {
     background-color: #3182ce;
     color: #ffffff;
     text-decoration: none;
 }
 
 /* Button Sizes */
-.btn-small {
+.page-template-default .btn-small {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     min-height: 36px;
 }
 
-.btn-large {
+.page-template-default .btn-large {
     padding: 1rem 2rem;
     font-size: 1.0625rem;
     min-height: 52px;
 }
 
 /* Button States */
-button:disabled,
-.btn:disabled {
+.page-template-default button:disabled,
+.page-template-default .btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none !important;
@@ -376,7 +376,7 @@ button:disabled,
 .site-main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 2rem 1.5rem;
 }
 
 .entry-header {
@@ -799,12 +799,12 @@ label {
         gap: 1.5rem;
     }
 
-    .btn {
+    .page-template-default .btn {
         width: 100%;
         justify-content: center;
     }
 
-    .btn-small {
+    .page-template-default .btn-small {
         width: auto;
         display: inline-flex;
     }

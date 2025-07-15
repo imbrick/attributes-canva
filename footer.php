@@ -14,7 +14,6 @@ if (!defined('ABSPATH')) {
 }
 
 ?>
-</main><!-- #main-content -->
 
 <footer id="site-footer" class="site-footer" role="contentinfo" aria-label="<?php esc_attr_e('Site Footer', 'attribute-canva'); ?>">
 
