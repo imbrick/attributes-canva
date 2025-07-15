@@ -1,8 +1,19 @@
 <?php
+// At the top of custom-widget.php
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+// Check if Elementor is loaded and the Widget_Base class exists
+if (!class_exists('Elementor\Widget_Base')) {
+    return;
+}
+
+/**
+ * Elementor Custom Widget
+ *
+ * @package Attribute Canva
+ */
 class Elementor_Custom_Widget extends \Elementor\Widget_Base
 {
     public function get_name()

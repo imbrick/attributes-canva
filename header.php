@@ -65,5 +65,3 @@ if (! defined('ABSPATH')) {
             ?>
         </p>
     </noscript>
-
-    <main id="main-content" class="site-main" role="main">
