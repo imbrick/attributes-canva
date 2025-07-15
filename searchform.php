@@ -1,4 +1,14 @@
-<?php if (!defined('ABSPATH')) exit; ?>
+<?php
+
+/**
+ * The template for displaying search forms.
+ *
+ * @package Attribute Canva
+ *
+ * Security check - prevent direct access
+ */
+
+if (!defined('ABSPATH')) exit; ?>
 
 <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
     <label for="search-field" class="sr-only">
